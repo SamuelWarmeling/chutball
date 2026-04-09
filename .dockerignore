@@ -1,0 +1,12 @@
+.git
+.gitignore
+.env
+.env.*
+vendor
+node_modules
+.composer-cache
+storage/logs/*.log
+storage/framework/cache/data/*
+storage/framework/sessions/*
+storage/framework/views/*
+database/migrations_backup_*.sql
