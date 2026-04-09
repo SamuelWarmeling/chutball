@@ -10,14 +10,27 @@ sed -ri "s/<VirtualHost \\*:80>/<VirtualHost *:${APP_PORT}>/g" /etc/apache2/site
 if [ -n "${DB_HOST:-}" ]; then
   echo "Waiting for MySQL at ${DB_HOST}:${DB_PORT:-3306}..."
   attempts=0
-  until mysqladmin ping \
-    -h"${DB_HOST}" \
-    -P"${DB_PORT:-3306}" \
-    -u"${DB_USERNAME:-root}" \
-    ${DB_PASSWORD:+-p"${DB_PASSWORD}"} \
-    --silent; do
+  until php -r '
+    $host = getenv("DB_HOST") ?: "127.0.0.1";
+    $port = getenv("DB_PORT") ?: "3306";
+    $database = getenv("DB_DATABASE") ?: "";
+    $username = getenv("DB_USERNAME") ?: "root";
+    $password = getenv("DB_PASSWORD") ?: "";
+    try {
+        new PDO(
+            "mysql:host={$host};port={$port};dbname={$database}",
+            $username,
+            $password,
+            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_TIMEOUT => 5]
+        );
+        exit(0);
+    } catch (Throwable $exception) {
+        fwrite(STDERR, $exception->getMessage() . PHP_EOL);
+        exit(1);
+    }
+  '; do
     attempts=$((attempts + 1))
-    if [ "${attempts}" -ge 60 ]; then
+    if [ "${attempts}" -ge 30 ]; then
       echo "MySQL did not become available in time."
       exit 1
     fi
