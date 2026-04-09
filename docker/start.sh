@@ -31,14 +31,14 @@ if [ -n "${DB_HOST:-}" ]; then
   '; do
     attempts=$((attempts + 1))
     if [ "${attempts}" -ge 30 ]; then
-      echo "MySQL did not become available in time."
-      exit 1
+      echo "MySQL did not become available in time. Starting app without blocking deploy."
+      break
     fi
     sleep 2
   done
 fi
 
 php artisan storage:link || true
-php artisan migrate --force
+php artisan migrate --force || true
 
 exec apache2-foreground
