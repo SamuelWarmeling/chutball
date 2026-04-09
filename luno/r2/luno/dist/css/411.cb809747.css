@@ -1,0 +1,268 @@
+.pament-wrap[data-v-5645ba30] {
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 3rem;
+    background: #f5f5f5;
+    position: relative;
+    z-index: 1
+}
+
+.pament-wrap .payment-box[data-v-5645ba30] {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 0;
+    border-radius: 1rem;
+    padding: 1rem 3rem;
+    padding-bottom: 2rem;
+    position: relative
+}
+
+.pament-wrap .payment-box .logo-img[data-v-5645ba30] {
+    width: 8rem;
+    position: absolute;
+    right: 3rem;
+    top: 1rem;
+    border: .1rem solid #999;
+    border-radius: 1rem
+}
+
+.pament-wrap .payment-box .tile[data-v-5645ba30] {
+    font-size: 3.2rem;
+    color: #333;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 1rem
+}
+
+.pament-wrap .payment-box .payment-info[data-v-5645ba30] {
+    margin-top: 3rem
+}
+
+.pament-wrap .payment-box .payment-info .l-name[data-v-5645ba30] {
+    font-size: 3.2rem;
+    color: #333;
+    font-weight: 700;
+    text-align: left
+}
+
+.pament-wrap .payment-box .payment-info .r-info[data-v-5645ba30] {
+    font-size: 3.2rem;
+    color: #333;
+    text-align: left;
+    font-weight: 700;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    background: #fff;
+    line-height: 6rem;
+    border-radius: 1rem
+}
+
+.pament-wrap .payment-box .tile2[data-v-5645ba30] {
+    color: red;
+    margin: 2rem auto
+}
+
+.pament-wrap .payment-box .payment-wrap[data-v-5645ba30] {
+    padding: 1rem 3rem;
+    border-radius: 1rem
+}
+
+.pament-wrap .payment-box .payment-infotwo[data-v-5645ba30] {
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 2rem;
+    justify-content: space-between;
+    background: #162af1;
+    border-bottom: 1px solid #fff;
+    margin-top: 2rem
+}
+
+.pament-wrap .payment-box .payment-infotwo .l-name[data-v-5645ba30] {
+    color: #fff;
+    font-weight: 700
+}
+
+.pament-wrap .payment-box .payment-infotwo .r-box[data-v-5645ba30] {
+    display: flex;
+    align-items: center
+}
+
+.pament-wrap .payment-box .payment-infotwo .r-box .info[data-v-5645ba30] {
+    color: #fff;
+    font-weight: 700;
+    font-size: 3.2rem
+}
+
+.pament-wrap .payment-box .payment-infotwo .r-box .copy[data-v-5645ba30] {
+    padding: 1rem 2rem;
+    background-color: #35774a;
+    border-color: #35774a;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 1rem;
+    margin-left: 2rem
+}
+
+.pament-wrap .payment-box .payment-infotwo .r-box .copy-img[data-v-5645ba30] {
+    width: 4rem;
+    margin-left: 1rem;
+    pointer-events: auto
+}
+
+.pament-wrap .payment-box .tip2[data-v-5645ba30] {
+    font-size: 2.6rem;
+    padding-top: 1rem;
+    line-height: 5rem;
+    padding-bottom: 3rem;
+    border-bottom: .1rem dashed #999
+}
+
+.pament-wrap .payment-box .sms-tile[data-v-5645ba30],
+.pament-wrap .payment-box .tip2[data-v-5645ba30] {
+    color: #333;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 3rem
+}
+
+.pament-wrap .payment-box .sms-tile span[data-v-5645ba30] {
+    color: #333
+}
+
+.pament-wrap .payment-box .btn[data-v-5645ba30] {
+    width: 90%;
+    background: #162af1;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    margin: 3rem auto;
+    margin-bottom: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 3rem
+}
+
+.pament-wrap .rulebox[data-v-5645ba30] {
+    width: 93%;
+    margin: 0 auto;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+    padding-bottom: 2rem;
+    margin-top: 3rem
+}
+
+.pament-wrap .rulebox .rule-tile[data-v-5645ba30] {
+    font-size: 4rem;
+    color: #333;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #fff
+}
+
+.pament-wrap .rulebox[data-v-5645ba30] .rule-text {
+    font-size: 2rem;
+    text-align: left;
+    color: #666;
+    margin-top: 3rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid #999
+}
+
+.pament-wrap .rulebox[data-v-5645ba30] .rule-text p {
+    color: #333
+}
+
+[data-v-5645ba30] .navboxi {
+    background: transparent
+}
+
+[data-v-5645ba30] .navboxi .van-nav-bar__content .van-nav-bar__left i {
+    color: #333
+}
+
+[data-v-5645ba30] .navboxi .van-nav-bar__content .van-nav-bar__title {
+    color: #333;
+    font-weight: 700
+}
+
+[data-v-5645ba30] .input-box {
+    border-radius: 1rem;
+    border: .1rem solid #dadbde;
+    margin-top: 2rem
+}
+
+[data-v-5645ba30] .input-box .van-cell__value {
+    position: static;
+    max-height: 50rem;
+    overflow-y: scroll
+}
+
+[data-v-5645ba30] .input-box textarea::placeholder {
+    font-size: 3.2rem !important;
+    color: #999
+}
+
+[data-v-5645ba30] .input-box .van-field__word-limit {
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem
+}
+
+[data-v-5645ba30] .uploader-box {
+    display: flex;
+    padding: 0 3rem;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 3rem
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs {
+    margin-right: 2rem;
+    width: 24rem;
+    height: 24rem;
+    background: hsla(0, 0%, 100%, .6);
+    border-radius: 1rem
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__upload {
+    width: 24rem;
+    height: 24rem;
+    border: .1rem solid #fff
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__upload i {
+    font-size: 8rem
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__wrapper {
+    width: 24rem;
+    height: 24rem
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__wrapper .van-uploader__input-wrapper {
+    width: 100%;
+    height: 100%
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__wrapper .van-uploader__preview .van-image {
+    width: 24rem;
+    height: 24rem
+}
+
+[data-v-5645ba30] .uploader-box .left .uploader-boxs .van-uploader__wrapper .imgit {
+    width: 8rem;
+    height: 8rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+[data-v-5645ba30] .uploader-box .left .tit {
+    font-size: 1.4rem;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: #fff
+}

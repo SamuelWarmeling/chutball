@@ -1,0 +1,250 @@
+.login[data-v-050ece96] {
+    min-height: 100vh;
+    background: #fff;
+    position: relative;
+    z-index: 1
+}
+
+
+
+.login header h2[data-v-050ece96] {
+    margin: 0;
+    font-size: 6.8rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 1rem
+}
+
+.login header .logo-img[data-v-050ece96] {
+    width: 21.4rem;
+    height: 5.2rem
+}
+
+.login header .p1[data-v-050ece96] {
+    font-size: 4.4rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 700;
+    margin-top: 30rem;
+    font-family: HelveticaNeue
+}
+
+.login header .dest[data-v-050ece96] {
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: #fff;
+    font-style: italic;
+    font-family: HelveticaNeue
+}
+
+.login header .top-bg[data-v-050ece96] {
+    width: 26.4rem;
+    height: 30.6rem
+}
+
+.login .section-box[data-v-050ece96] {
+    padding: 5rem 5rem;
+    border-radius: 6rem 6rem 0 0;
+    margin-top: -6rem;
+    position: relative;
+    z-index: 2;
+    background: #fff
+}
+
+.login .section-box .tabs-wrap p[data-v-050ece96] {
+    font-size: 3.6rem;
+    color: #323232;
+    font-weight: 500
+}
+
+.login .section-box .tabs-wrap p.ac[data-v-050ece96] {
+    font-size: 4.6rem
+}
+
+.login .section-box .tabs-wrap span[data-v-050ece96] {
+    color: #d0d0d0;
+    margin: 0 2.5rem
+}
+
+.login .section-box .content[data-v-050ece96] {
+    border-radius: .8rem;
+    padding: 4rem 0 0
+}
+
+.login .section-box .content .signin[data-v-050ece96] {
+    height: 7rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end
+}
+
+.login .section-box .content .signin p[data-v-050ece96] {
+    position: absolute;
+    display: inline-block;
+    color: #012cf9;
+    font-size: 5rem;
+    font-weight: 600
+}
+
+.login .section-box .content .signin span[data-v-050ece96] {
+    display: inline-block;
+    content: "";
+    width: 17.2rem;
+    height: 1.2rem;
+    background: #ffd638
+}
+
+.login .section-box .content .userinfo[data-v-050ece96] {
+    margin-top: 5rem;
+    width: 100%;
+    border-radius: 1rem
+}
+
+.login .section-box .content .userinfo .line[data-v-050ece96] {
+    width: 90%;
+    height: .1rem;
+    margin: .5rem auto;
+    background: #cecece
+}
+
+.login .section-box .goforget[data-v-050ece96] {
+    justify-content: space-between;
+    margin-top: 12rem
+}
+
+.login .section-box .goforget .signup[data-v-050ece96] {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.login .section-box .goforget .signup p[data-v-050ece96] {
+    color: #9c9c9c;
+    font-size: 2.8rem;
+    margin-right: 2rem;
+    text-decoration: underline
+}
+
+.login .section-box .goforget .signup img[data-v-050ece96] {
+    width: 3rem;
+    height: 3rem
+}
+
+.login .section-box .goforget .forgot[data-v-050ece96] {
+    color: red;
+    font-weight: 700;
+    font-size: 2.8rem
+}
+
+.login .section-box .downloadapp[data-v-050ece96] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 4rem
+}
+
+.login .section-box .downloadapp p[data-v-050ece96] {
+    color: #fa6400;
+    font-size: 3.6rem;
+    margin-left: 2rem
+}
+
+.login .section-box .downloadapp img[data-v-050ece96] {
+    width: 3.8rem;
+    height: 3rem
+}
+
+.login .section-box .btnsign[data-v-050ece96] {
+    width: 24rem;
+    margin: 0
+}
+
+.login .section-box .signup[data-v-050ece96] {
+    margin-top: 5rem
+}
+
+.login .section-box .signup p[data-v-050ece96] {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: #a3a3a3
+}
+
+.login .section-box .signup p strong[data-v-050ece96] {
+    font-weight: 400;
+    color: #ec611f;
+    text-decoration: underline
+}
+
+[data-v-050ece96] .input-box {
+    background: #f6f7fa;
+    height: 11rem;
+    border-radius: 1.6rem;
+    align-items: center;
+    border: none;
+    margin-bottom: 4.2rem
+}
+
+[data-v-050ece96] .input-box:after {
+    border: none
+}
+
+[data-v-050ece96] .input-box .van-field__control {
+    font-weight: 500;
+    font-size: 3.2rem
+}
+
+[data-v-050ece96] .input-box input::placeholder {
+    font-size: 3.2rem;
+    font-weight: 400
+}
+
+[data-v-050ece96] .input-box .van-field__left-icon {
+    margin-right: 2rem
+}
+
+[data-v-050ece96] .input-box .van-field__left-icon .phone-left {
+    display: flex;
+    align-items: center
+}
+
+[data-v-050ece96] .input-box .van-field__left-icon .phone-left img {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 2rem
+}
+
+[data-v-050ece96] .input-box .van-field__left-icon .phone-left .imgt {
+    margin-right: 0
+}
+
+[data-v-050ece96] .input-box .van-field__left-icon .phone-left p {
+    font-size: 3.6rem;
+    color: #0628fb;
+    font-weight: 500
+}
+
+[data-v-050ece96] .input-box .van-field__right-icon p {
+    font-size: 2.8rem;
+    padding: .8rem 1.8rem;
+    background: #fff;
+    color: #fa8e39;
+    border-radius: 1rem;
+    font-weight: 500
+}
+
+[data-v-050ece96] .input-box .van-field__right-icon img {
+    width: 3.4rem;
+    height: 2.2rem
+}
+
+[data-v-050ece96] .input-box input::placeholder {
+    color: #999
+}
+
+[data-v-050ece96] .input-box:after {
+    display: none
+}

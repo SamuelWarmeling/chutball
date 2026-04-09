@@ -1,0 +1,197 @@
+.empty-wrap[data-v-b07f0998] {
+    width: 100%
+}
+
+.empty-wrap .empty[data-v-b07f0998] {
+    width: 18.6rem;
+    height: 17.4rem;
+    margin: 0 auto
+}
+
+.empty-wrap .text[data-v-b07f0998] {
+    color: #fff;
+    font-weight: 500;
+    font-size: 2.8rem;
+    margin-top: 2rem
+}
+
+.records[data-v-252ad0c0] {
+    min-height: 100vh;
+    background: #fff
+}
+
+.records[data-v-252ad0c0]:after {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, #0628fb, #0d9df7);
+    position: fixed;
+    top: 0;
+    left: 0
+}
+
+.records .select[data-v-252ad0c0] {
+    padding: 0 2.8rem;
+    margin-top: 2rem
+}
+
+.records .select .tilese[data-v-252ad0c0] {
+    font-size: 2.8rem;
+    color: #333;
+    font-weight: 500
+}
+
+.records .select .search[data-v-252ad0c0] {
+    width: 36.5rem;
+    height: 5.6rem;
+    background: #ededed;
+    border-radius: .6rem
+}
+
+.records .select .search .left[data-v-252ad0c0] {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.records .select .search .left .datai[data-v-252ad0c0] {
+    font-size: 2.4rem;
+    color: #777;
+    margin-right: 1rem;
+    font-weight: 500
+}
+
+.records .select .search .left .dataimg[data-v-252ad0c0] {
+    width: 2.8rem;
+    height: 2.8rem
+}
+
+.records .select .search .btnsear[data-v-252ad0c0] {
+    height: 5.6rem;
+    width: 15.4rem;
+    background: #0091ff;
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: #fff;
+    border-radius: .6rem;
+    line-height: 5.6rem
+}
+
+.records .listrecore .toptitle[data-v-252ad0c0] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem
+}
+
+.records .listrecore .toptitle span[data-v-252ad0c0] {
+    width: 2rem;
+    height: 2rem;
+    background: #777;
+    border-radius: 50%;
+    margin-right: 2rem
+}
+
+.records .listrecore .toptitle p[data-v-252ad0c0] {
+    font-size: 2.8rem;
+    color: #777
+}
+
+.records .listrecore .contit[data-v-252ad0c0] {
+    width: 92%;
+    margin: 3rem auto;
+    background: hsla(0, 0%, 100%, .95);
+    border-radius: 2.4rem;
+    padding: 3rem 3rem;
+    box-sizing: border-box
+}
+
+.records .listrecore .contit .contit-top img[data-v-252ad0c0] {
+    width: 4.6rem;
+    height: 4.6rem;
+    margin-right: 2rem
+}
+
+.records .listrecore .contit .contit-top p[data-v-252ad0c0] {
+    font-size: 2.8rem;
+    font-weight: 500
+}
+
+.records .listrecore .contit .contit-center[data-v-252ad0c0] {
+    margin-top: 1rem
+}
+
+.records .listrecore .contit .contit-center p[data-v-252ad0c0] {
+    font-size: 3.2rem
+}
+
+.records .listrecore .contit .contit-center .amount[data-v-252ad0c0] {
+    color: #0d9df7
+}
+
+.records .listrecore .contit .contit-center .success[data-v-252ad0c0] {
+    font-weight: 500;
+    font-size: 2.6rem
+}
+
+.records .listrecore .contit .contit-bom[data-v-252ad0c0] {
+    text-align: left
+}
+
+.records .listrecore .contit .contit-bom p[data-v-252ad0c0] {
+    font-size: 3rem;
+    font-weight: 700
+}
+
+[data-v-252ad0c0] .nav-box {
+    padding: 4rem 0 0;
+    background: none
+}
+
+[data-v-252ad0c0] .nav-box .van-nav-bar__content .van-nav-bar__left img {
+    width: 2.6rem;
+    height: 3rem
+}
+
+[data-v-252ad0c0] .nav-box .van-nav-bar__content .van-nav-bar__title {
+    max-width: 80%
+}
+
+[data-v-252ad0c0] .nav-box .van-nav-bar__content .van-nav-bar__title img {
+    width: 39.4rem;
+    height: 4.7rem
+}
+
+[data-v-252ad0c0] .nav-box:after {
+    display: none
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap {
+    border-radius: 4rem 4rem 0 0
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap .van-tabs__nav {
+    background: none
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap .van-tabs__nav .van-tab span {
+    font-size: 3rem;
+    color: #eee;
+    font-weight: 500
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap .van-tabs__nav .van-tab--active {
+    border-radius: 1rem
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap .van-tabs__nav .van-tab--active span {
+    color: #fff;
+    font-weight: 500
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__wrap .van-tabs__nav .van-tabs__line {
+    background: #fff
+}
+
+[data-v-252ad0c0] .tabs-box .van-tabs__content {
+    margin-top: 2rem
+}

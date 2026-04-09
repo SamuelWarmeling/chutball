@@ -1,0 +1,302 @@
+.recharge[data-v-0a8b454d] {
+    min-height: 100vh;
+    background: #fff;
+    padding-bottom: 5rem;
+    box-sizing: border-box
+}
+
+.recharge .balance-card[data-v-0a8b454d] {
+    width: 92%;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #0628fb, #0d9df7);
+    box-shadow: 0 .4rem 2rem 0 rgba(6, 40, 251, .3);
+    border-radius: 2rem;
+    padding: 3rem;
+    box-sizing: border-box;
+    text-align: left;
+    color: #fff;
+    position: relative
+}
+
+.recharge .balance-card .bal-top .val[data-v-0a8b454d] {
+    color: #fff;
+    font-weight: 500;
+    font-size: 5rem
+}
+
+.recharge .balance-card .bal-top span[data-v-0a8b454d] {
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: #fff
+}
+
+.recharge .balance-card .r-img[data-v-0a8b454d] {
+    position: absolute;
+    width: 27rem;
+    right: 3rem;
+    top: 3rem
+}
+
+.recharge .section-box[data-v-0a8b454d] {
+    padding: 0 2.8rem
+}
+
+.recharge .section-box .mybalance[data-v-0a8b454d] {
+    height: 18rem;
+    padding: 2rem 6rem 2rem;
+    text-align: center
+}
+
+.recharge .section-box .mybalance p[data-v-0a8b454d] {
+    font-size: 7.6rem;
+    color: #fff;
+    margin-bottom: 2rem
+}
+
+.recharge .section-box .mybalance span[data-v-0a8b454d] {
+    font-size: 3rem;
+    font-weight: 500;
+    color: hsla(0, 0%, 100%, .7)
+}
+
+.recharge .section-box .signin[data-v-0a8b454d] {
+    height: 7rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 3rem
+}
+
+.recharge .section-box .signin p[data-v-0a8b454d] {
+    position: absolute;
+    display: inline-block;
+    color: #012cf9;
+    font-size: 2.8rem;
+    font-weight: 600
+}
+
+.recharge .section-box .signin span[data-v-0a8b454d] {
+    display: inline-block;
+    content: "";
+    width: 19.2rem;
+    height: 1.2rem;
+    background: #ffd638
+}
+
+.recharge .section-box .activity-img[data-v-0a8b454d] {
+    width: 100%;
+    margin: 2rem auto;
+    pointer-events: auto
+}
+
+.recharge .section-box .tips-wrap[data-v-0a8b454d] {
+    text-align: left;
+    margin-top: 1rem
+}
+
+.recharge .section-box .tips-wrap p[data-v-0a8b454d] {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: #000;
+    margin-right: 1.5rem
+}
+
+.recharge .section-box .tips-wrap span[data-v-0a8b454d] {
+    font-size: 2.4rem;
+    color: #929292
+}
+
+.recharge .section-box .cholist[data-v-0a8b454d] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3rem
+}
+
+.recharge .section-box .cholist .itemu[data-v-0a8b454d] {
+    font-size: 3.2rem;
+    width: 23%;
+    padding: 2rem 0;
+    border-radius: 1.6rem;
+    border: .3rem solid #bdbdbd;
+    font-weight: 500;
+    margin-bottom: 2rem
+}
+
+.recharge .section-box .cholist .itemu p[data-v-0a8b454d] {
+    color: #000;
+    font-size: 2.8rem;
+    font-weight: 500
+}
+
+.recharge .section-box .cholist .itemu img[data-v-0a8b454d] {
+    width: 5.2rem;
+    height: 5.2rem;
+    margin-top: 1rem
+}
+
+.recharge .section-box .cholist .itemu span[data-v-0a8b454d] {
+    color: #aaa;
+    font-size: 2.2rem
+}
+
+.recharge .section-box .cholist .actives[data-v-0a8b454d] {
+    background: #e7e8ff;
+    border: .3rem solid #162af1;
+    color: #162af1
+}
+
+.recharge .section-box .cholist .actives p[data-v-0a8b454d] {
+    color: inherit;
+    font-weight: 700
+}
+
+.recharge .section-box .seletwo span[data-v-0a8b454d] {
+    width: 23.3rem
+}
+
+.recharge .section-box .ullist[data-v-0a8b454d] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.recharge .section-box .ullist .listmethod[data-v-0a8b454d] {
+    width: 32%;
+    height: 8.4rem;
+    background: #fff;
+    box-shadow: 0 .4rem 1.1rem -.4rem rgba(0, 0, 0, .3);
+    border-radius: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-bottom: 3rem
+}
+
+.recharge .section-box .ullist .listmethod .left[data-v-0a8b454d] {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem
+}
+
+.recharge .section-box .ullist .listmethod .left img[data-v-0a8b454d] {
+    width: 3.4rem;
+    height: 2.6rem
+}
+
+.recharge .section-box .ullist .listmethod .left p[data-v-0a8b454d] {
+    font-size: 2.6rem;
+    color: #333;
+    margin-left: 1rem
+}
+
+.recharge .section-box .ullist .listmethod .imgright[data-v-0a8b454d] {
+    width: 4rem;
+    height: 4rem
+}
+
+.recharge .section-box .ullist .chopaya[data-v-0a8b454d] {
+    background: linear-gradient(90deg, #00c4ff, #0091ff)
+}
+
+.recharge .section-box .ullist .chopaya .left p[data-v-0a8b454d] {
+    color: #fff;
+    font-weight: 700
+}
+
+.recharge .section-box .ullist .chopaya .imgright[data-v-0a8b454d] {
+    width: 4.4rem;
+    height: 4rem
+}
+
+.recharge .section-box .ullist .Place[data-v-0a8b454d] {
+    width: 30%
+}
+
+.recharge .section-box .minimum[data-v-0a8b454d] {
+    text-align: left;
+    margin-top: 6rem
+}
+
+.recharge .section-box .minimum .content-text[data-v-0a8b454d] {
+    margin-top: 2rem;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    color: #333
+}
+
+.recharge .section-box .rechbtn[data-v-0a8b454d] {
+    margin-top: 5rem;
+    border-radius: 3rem;
+    width: 80%
+}
+
+[data-v-0a8b454d] .nav-box {
+    padding: 4rem 0 0;
+    background: none
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__left img {
+    width: 2.6rem;
+    height: 3rem
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__title {
+    max-width: 80%
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__title img {
+    width: 19.2rem;
+    height: 5rem
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__right .billde {
+    display: flex;
+    align-items: center
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__right .billde p {
+    font-size: 3.2rem;
+    color: #333
+}
+
+[data-v-0a8b454d] .nav-box .van-nav-bar__content .van-nav-bar__right .billde img {
+    width: 3rem;
+    height: 4rem;
+    margin-left: 1rem
+}
+
+[data-v-0a8b454d] .nav-box:after {
+    display: none
+}
+
+[data-v-0a8b454d] .input-box {
+    height: 11rem;
+    border-radius: 3.6rem;
+    padding: 1.5rem 2rem;
+    border: .2rem solid #979797
+}
+
+[data-v-0a8b454d] .input-box .van-field__body {
+    height: 100%
+}
+
+[data-v-0a8b454d] .input-box .van-field__left-icon {
+    margin-right: 2rem;
+    display: flex;
+    align-items: center
+}
+
+[data-v-0a8b454d] .input-box .van-field__left-icon p {
+    font-size: 3.6rem;
+    color: #0628fb
+}
+
+[data-v-0a8b454d] .input-box input {
+    font-size: 3rem;
+    font-weight: 700
+}

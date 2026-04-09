@@ -1,0 +1,282 @@
+.awarduis[data-v-0ee438ad] {
+    min-height: 100vh;
+    height: 100%;
+    background: #fff;
+    padding-bottom: 5rem
+}
+
+.awarduis .invite-methods[data-v-0ee438ad] {
+    width: 92%;
+    margin: 2rem auto 4rem;
+    text-align: left;
+    background: #ecf6fe;
+    border-radius: 2.4rem;
+    padding: 2rem
+}
+
+.awarduis .invite-methods .code[data-v-0ee438ad] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.awarduis .invite-methods .code .invi-code[data-v-0ee438ad] {
+    display: flex;
+    align-items: center
+}
+
+.awarduis .invite-methods .code .invi-code img[data-v-0ee438ad] {
+    width: 3.2rem;
+    margin-right: 1rem
+}
+
+.awarduis .invite-methods .code .copy-btn[data-v-0ee438ad] {
+    font-size: 3rem;
+    font-weight: 700;
+    text-decoration: underline;
+    color: #162af1
+}
+
+.awarduis .invite-methods .line[data-v-0ee438ad] {
+    width: 95%;
+    height: .1rem;
+    border: .1rem dashed #061278;
+    margin: 2rem auto
+}
+
+.awarduis .task-box .task-tile[data-v-0ee438ad] {
+    font-weight: 400;
+    font-size: 3.4rem;
+    color: #000;
+    text-align: left;
+    padding-left: 3rem
+}
+
+.awarduis .task-box .task-list[data-v-0ee438ad] {
+    padding: 3rem
+}
+
+.awarduis .task-box .task-list .task-item[data-v-0ee438ad] {
+    background: #ecf6fe;
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    margin-bottom: 3rem
+}
+
+.awarduis .task-box .task-list .task-item .task-item-tile[data-v-0ee438ad] {
+    font-size: 2.6rem;
+    color: #081876;
+    font-weight: 500;
+    text-align: left
+}
+
+.awarduis .task-box .task-list .task-item .task-item-tile span[data-v-0ee438ad] {
+    color: red;
+    font-weight: 700
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom[data-v-0ee438ad] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom .l-circle[data-v-0ee438ad] {
+    display: flex;
+    align-items: center
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom .l-circle .progress-bar-container[data-v-0ee438ad] {
+    width: 25.4rem;
+    height: 2.4rem;
+    background: #c0c6ff;
+    border-radius: 5rem;
+    overflow: hidden
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom .l-circle .progress-bar-container .progress-bar-wrapper[data-v-0ee438ad] {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 5rem;
+    overflow: hidden
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom .l-circle .progress-bar-container .progress-bar-wrapper .progress-bar[data-v-0ee438ad] {
+    height: 100%;
+    background-color: #162af1;
+    transition: width .3s ease
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom .l-circle .circle-num[data-v-0ee438ad] {
+    color: #162af1;
+    margin-left: 1rem
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom[data-v-0ee438ad] .rece-btn {
+    width: 14.3rem;
+    height: 4.8rem;
+    background: #162af1;
+    border-radius: 5rem
+}
+
+.awarduis .task-box .task-list .task-item .task-item-bottom[data-v-0ee438ad] .rece-btn .van-button__content .van-button__text {
+    color: #fff;
+    font-weight: 700
+}
+
+.awarduis header[data-v-0ee438ad] {
+    text-align: center;
+    position: relative;
+    margin-top: -10rem
+}
+
+.awarduis header p[data-v-0ee438ad] {
+    font-size: 6.4rem;
+    font-weight: 900
+}
+
+.awarduis header span[data-v-0ee438ad] {
+    color: #4080e8;
+    font-size: 3.6rem;
+    margin: 1rem 0;
+    display: block;
+    font-weight: 700
+}
+
+
+
+.awarduis header .show-reward .til1[data-v-0ee438ad] {
+    font-size: 3rem;
+    margin-top: 2rem;
+    text-align: left
+}
+
+.awarduis header .show-reward .til1 span[data-v-0ee438ad] {
+    font-size: 4rem;
+    font-weight: 700;
+    color: red
+}
+
+.awarduis .nav-top[data-v-0ee438ad] {
+    width: 100%;
+    height: 42rem;
+    background: url(/luno/dist/img/1.690cce5f.png) no-repeat;
+    background-size: cover;
+    position: relative
+}
+
+.awarduis .nav-top .back[data-v-0ee438ad] {
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 0 2.8rem
+}
+
+.awarduis .nav-top .back img[data-v-0ee438ad] {
+    width: 2.6rem;
+    height: 3rem;
+    margin-right: 1.3rem
+}
+
+.awarduis .nav-top .back p[data-v-0ee438ad] {
+    font-size: 3.6rem;
+    color: #fff
+}
+
+.awarduis .nav-top .inviteimg[data-v-0ee438ad] {
+    width: 35.2rem;
+    height: 6.8rem;
+    position: absolute;
+    right: 7rem;
+    bottom: 3.6rem
+}
+
+.awarduis .section-box[data-v-0ee438ad] {
+    width: 100%;
+    margin: 0 auto
+}
+
+.awarduis .section-box .invitation2[data-v-0ee438ad] {
+    height: 44.2rem;
+    padding: 7.5rem 5rem 4rem 5rem
+}
+
+.awarduis .section-box .invitation2 .top[data-v-0ee438ad] {
+    display: flex;
+    align-items: flex-start
+}
+
+.awarduis .section-box .invitation2 .top img[data-v-0ee438ad] {
+    width: 16.6rem;
+    height: 13rem;
+    margin-right: 1rem
+}
+
+.awarduis .section-box .invitation2 .top .friend .rupees[data-v-0ee438ad] {
+    font-size: 2.8rem;
+    text-align: left;
+    margin-bottom: 1rem
+}
+
+.awarduis .section-box .invitation2 .top .friend .rupees span[data-v-0ee438ad] {
+    font-size: 2.8rem;
+    color: #ffec72;
+    font-weight: 600
+}
+
+.awarduis .section-box .invitation2 .top .friend .gained[data-v-0ee438ad] {
+    font-size: 2.8rem;
+    text-align: left
+}
+
+.awarduis .section-box .invitation2 .top .friend .gained span[data-v-0ee438ad] {
+    font-size: 2.8rem;
+    color: #ffec72;
+    font-weight: 600
+}
+
+.awarduis .section-box .invitation2 .receive[data-v-0ee438ad] {
+    margin-top: 4rem;
+    width: 35.2rem;
+    height: 7.8rem
+}
+
+[data-v-0ee438ad] .popup-success {
+    width: 64rem;
+    background: #fff;
+    border-radius: 4rem;
+    padding: 4.5rem 3rem;
+    box-sizing: border-box
+}
+
+[data-v-0ee438ad] .popup-success .topcontent {
+    width: 100%
+}
+
+[data-v-0ee438ad] .popup-success .topcontent .latest {
+    font-size: 4.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem
+}
+
+[data-v-0ee438ad] .popup-success .topcontent .imgsuc p {
+    color: #ec611f;
+    font-size: 4.2rem;
+    font-weight: 500;
+    margin: 3rem 0
+}
+
+[data-v-0ee438ad] .popup-success .topcontent .textui {
+    font-size: 3rem;
+    text-align: left
+}
+
+[data-v-0ee438ad] .popup-success .topcontent button {
+    margin-top: 5rem
+}
+
+[data-v-0ee438ad] .popup-success .imgclose {
+    width: 6.4rem;
+    height: 10.4rem
+}

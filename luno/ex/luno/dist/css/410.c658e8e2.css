@@ -1,0 +1,416 @@
+.withdraw[data-v-1899d99b] {
+    min-height: 100vh;
+    background: #fff;
+    padding-bottom: 5rem;
+    box-sizing: border-box
+}
+
+.withdraw .balance-card[data-v-1899d99b] {
+    width: 92%;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #0628fb, #0d9df7);
+    box-shadow: 0 .4rem 2rem 0 rgba(6, 40, 251, .3);
+    border-radius: 2rem;
+    padding: 3rem;
+    box-sizing: border-box;
+    text-align: left;
+    color: #fff;
+    position: relative
+}
+
+.withdraw .balance-card .bal-top .val[data-v-1899d99b] {
+    color: #fff;
+    font-weight: 500;
+    font-size: 5rem
+}
+
+.withdraw .balance-card .bal-top span[data-v-1899d99b] {
+    font-weight: 400;
+    font-size: 2.6rem;
+    color: #fff
+}
+
+.withdraw .balance-card .r-img[data-v-1899d99b] {
+    position: absolute;
+    width: 27rem;
+    right: 3rem;
+    top: 3rem
+}
+
+.withdraw .tips-wrap[data-v-1899d99b] {
+    text-align: left;
+    margin-top: 6rem
+}
+
+.withdraw .tips-wrap p[data-v-1899d99b] {
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: #000;
+    margin-right: 1.5rem
+}
+
+.withdraw .tips-wrap span[data-v-1899d99b] {
+    font-size: 2.4rem;
+    color: #929292
+}
+
+.withdraw .tips-wrap span i[data-v-1899d99b] {
+    color: #ff651a;
+    font-style: normal
+}
+
+.withdraw .section-box[data-v-1899d99b] {
+    padding: 0 2.8rem;
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 4rem 4rem 0 0
+}
+
+.withdraw .section-box .mybalance[data-v-1899d99b] {
+    height: 18rem;
+    padding: 3rem 6rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2.5rem
+}
+
+.withdraw .section-box .mybalance p[data-v-1899d99b] {
+    color: #ec611f;
+    font-size: 7.6rem;
+    margin-bottom: 2rem
+}
+
+.withdraw .section-box .mybalance span[data-v-1899d99b] {
+    font-size: 2.8rem;
+    font-weight: 500
+}
+
+.withdraw .section-box .account-wrap[data-v-1899d99b] {
+    margin-top: 1rem;
+    margin-bottom: 3rem
+}
+
+.withdraw .section-box .account-wrap .banktitle[data-v-1899d99b] {
+    font-size: 2.8rem;
+    color: #333;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 500
+}
+
+.withdraw .section-box .remove[data-v-1899d99b] {
+    color: red;
+    text-align: right
+}
+
+.withdraw .section-box .signin[data-v-1899d99b] {
+    height: 7rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 3rem
+}
+
+.withdraw .section-box .signin p[data-v-1899d99b] {
+    position: absolute;
+    display: inline-block;
+    color: #012cf9;
+    font-size: 2.8rem;
+    font-weight: 600
+}
+
+.withdraw .section-box .signin span[data-v-1899d99b] {
+    display: inline-block;
+    content: "";
+    width: 26rem;
+    height: 1.2rem;
+    background: #ffd638
+}
+
+.withdraw .section-box .feeges[data-v-1899d99b] {
+    padding: 1.5rem 0;
+    justify-content: flex-start
+}
+
+.withdraw .section-box .feeges p[data-v-1899d99b] {
+    font-size: 2.4rem;
+    color: #333;
+    margin-right: 1rem
+}
+
+.withdraw .section-box .feeges span[data-v-1899d99b] {
+    font-size: 2.6rem;
+    color: #fa6400;
+    font-weight: 500
+}
+
+.withdraw .section-box .seletwo[data-v-1899d99b] {
+    margin-top: 2rem
+}
+
+.withdraw .section-box .seletwo span[data-v-1899d99b] {
+    width: 26.3rem
+}
+
+.withdraw .section-box .account[data-v-1899d99b] {
+    height: 12rem;
+    background: #fff;
+    border-radius: 1.6rem;
+    padding: 2.4rem;
+    margin-bottom: 2rem
+}
+
+.withdraw .section-box .account .left[data-v-1899d99b] {
+    display: flex;
+    align-items: center
+}
+
+.withdraw .section-box .account .left img[data-v-1899d99b] {
+    width: 5.3rem;
+    height: 4.8rem;
+    margin-right: 2rem
+}
+
+.withdraw .section-box .account .left .holdera[data-v-1899d99b] {
+    text-align: left
+}
+
+.withdraw .section-box .account .left .holdera .banknum[data-v-1899d99b],
+.withdraw .section-box .account .left .holdera .uname[data-v-1899d99b] {
+    font-size: 2.6rem;
+    color: #333
+}
+
+.withdraw .section-box .account .right[data-v-1899d99b] {
+    display: flex;
+    align-items: center
+}
+
+.withdraw .section-box .account .right img[data-v-1899d99b] {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 1rem
+}
+
+.withdraw .section-box .account .right p[data-v-1899d99b] {
+    font-size: 2.4rem;
+    color: #0091ff;
+    text-decoration: underline
+}
+
+.withdraw .section-box .notset[data-v-1899d99b] {
+    color: #fa6400;
+    text-align: left;
+    margin-bottom: .5rem
+}
+
+.withdraw .section-box .minimum[data-v-1899d99b] {
+    text-align: left;
+    margin-top: 6rem
+}
+
+.withdraw .section-box .minimum .content-tips[data-v-1899d99b] {
+    font-size: 2.4rem;
+    color: #333;
+    line-height: 1.5
+}
+
+.withdraw .section-box .rechbtn[data-v-1899d99b] {
+    margin-top: 6rem
+}
+
+[data-v-1899d99b] .nav-box {
+    padding: 4rem 0 0;
+    background: none
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__left img {
+    width: 2.6rem;
+    height: 3rem
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__title {
+    max-width: 80%
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__title img {
+    width: 19.6rem;
+    height: 4.7rem
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__right .billde {
+    display: flex;
+    align-items: center
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__right .billde p {
+    font-size: 3.2rem;
+    color: #333
+}
+
+[data-v-1899d99b] .nav-box .van-nav-bar__content .van-nav-bar__right .billde img {
+    width: 3rem;
+    height: 4rem;
+    margin-left: 1rem
+}
+
+[data-v-1899d99b] .nav-box:after {
+    display: none
+}
+
+[data-v-1899d99b] .input-box {
+    height: 8rem;
+    padding: 1.5rem 2rem
+}
+
+[data-v-1899d99b] .input-box.apply-amount .van-cell__title {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #ec611f
+}
+
+[data-v-1899d99b] .input-box .van-field__left-icon {
+    margin-right: 2rem
+}
+
+[data-v-1899d99b] .input-box .van-field__left-icon img {
+    width: 4.4rem;
+    height: 4.4rem
+}
+
+[data-v-1899d99b] .input-box .van-field__right-icon button {
+    width: 12.1rem;
+    height: 5rem;
+    background: linear-gradient(90deg, #00c4ff, #0091ff);
+    border-radius: .8rem;
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: #fff
+}
+
+[data-v-1899d99b] .input-box .van-field__right-icon .eyeimg {
+    width: 3.4rem;
+    height: 2.2rem
+}
+
+[data-v-1899d99b] .input-box input {
+    font-size: 3rem
+}
+
+[data-v-1899d99b] .popup-bank {
+    background: #fff;
+    border-radius: 4rem 4rem 0 0;
+    padding: 4.5rem 3rem 8rem;
+    box-sizing: border-box
+}
+
+[data-v-1899d99b] .popup-bank .van-field__right-icon {
+    display: flex;
+    align-items: center
+}
+
+[data-v-1899d99b] .popup-bank .van-field__right-icon img {
+    width: 4rem;
+    height: 100%
+}
+
+[data-v-1899d99b] .popup-bank .signin p {
+    font-size: 4.2rem;
+    font-weight: 500;
+    margin-bottom: 5rem
+}
+
+[data-v-1899d99b] .popup-bank .banktitle {
+    font-size: 2.8rem;
+    color: #333;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 500
+}
+
+[data-v-1899d99b] .popup-bank .input-box {
+    height: 8rem;
+    background: #fff;
+    box-shadow: 0 0 .4rem 0 rgba(0, 0, 0, .1);
+    border-radius: .8rem;
+    border: .1rem solid rgba(32, 31, 68, .2);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    margin-top: 2rem
+}
+
+[data-v-1899d99b] .popup-bank .bankbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8rem
+}
+
+[data-v-1899d99b] .van-field .van-field__value .van-field__body input::placeholder {
+    color: #9c9c9c;
+    font-size: 2.8rem
+}
+
+[data-v-1899d99b] .trpassword {
+    width: 67rem;
+    background: #fff;
+    border-radius: 4rem;
+    padding: 4rem 3rem
+}
+
+[data-v-1899d99b] .trpassword .tip {
+    color: #333;
+    font-weight: 700;
+    font-size: 5rem
+}
+
+[data-v-1899d99b] .trpassword .input-box {
+    height: 8rem
+}
+
+[data-v-1899d99b] .trpassword .input-box .eyeimg {
+    width: 3.4rem;
+    height: 2rem;
+    margin-top: 1rem;
+    pointer-events: auto
+}
+
+[data-v-1899d99b] .trpassword .input-box input {
+    font-size: 3rem
+}
+
+[data-v-1899d99b] .trpassword .input-box input::placeholder {
+    color: #000
+}
+
+[data-v-1899d99b] .trpassword .areyour {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: red;
+    margin-top: 3rem
+}
+
+[data-v-1899d99b] .trpassword .oldpas {
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 3rem;
+    color: #fff
+}
+
+[data-v-1899d99b] .trpassword .transtn {
+    margin-top: 5rem
+}
+
+[data-v-1899d99b] .trpassword .transtn :first-child {
+    background: linear-gradient(90deg, #0628fb, #0d9df7);
+    border-radius: 2rem;
+    width: 53rem;
+    height: 8rem;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #fff
+}
