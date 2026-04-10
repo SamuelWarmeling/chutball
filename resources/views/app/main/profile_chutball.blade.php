@@ -203,6 +203,26 @@
         .list-left i:first-child { color: var(--accent-dark); width: 22px; text-align: center; }
         .list-left span { font-size: 0.92rem; font-weight: 700; }
         .list-row i:last-child { color: #a2aeb5; }
+        .logout-wrap {
+            margin: 16px;
+        }
+        .logout-btn {
+            width: 100%;
+            border: none;
+            border-radius: 18px;
+            padding: 16px;
+            background: linear-gradient(135deg, #e63946 0%, #f06a75 100%);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 14px 24px rgba(230, 57, 70, 0.2);
+            cursor: pointer;
+        }
         .bottom-nav {
             position: fixed;
             left: 50%;
@@ -344,6 +364,13 @@
                 </div>
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
+        </div>
+
+        <div class="logout-wrap">
+            <button type="button" class="logout-btn" onclick="window.location.href='{{ route('logout') }}'">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Sair da conta</span>
+            </button>
         </div>
 
         <section class="section-card" style="margin-top: 0;">
