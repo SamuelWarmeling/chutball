@@ -40,5 +40,6 @@ fi
 
 php artisan storage:link || true
 php artisan migrate --force || true
+php artisan db:seed --force || true
 
 exec apache2-foreground

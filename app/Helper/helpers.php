@@ -199,6 +199,14 @@ if (! function_exists('getRelatedSlugs')){
 if(! function_exists('setting')){
     function setting($column)
     {
+        if (! \Illuminate\Support\Facades\Schema::hasTable('settings')) {
+            return "Data Is Empty";
+        }
+
+        if (! \Illuminate\Support\Facades\Schema::hasColumn('settings', $column)) {
+            return "Data Is Empty";
+        }
+
         $setting = \App\Models\Setting::select('id', "$column")->first();
         if ($setting){
             $column = $setting->{$column};

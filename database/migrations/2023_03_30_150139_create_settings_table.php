@@ -15,10 +15,15 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('favicon');
-            $table->string('site_name');
-            $table->string('site_title');
+            $table->string('logo')->nullable();
+            $table->string('favicon')->nullable();
+            $table->string('site_name')->default('CHUTBALL');
+            $table->string('site_title')->default('CHUTBALL');
+            $table->string('service')->nullable();
+            $table->decimal('registration_bonus', 14, 2)->default(0);
+            $table->integer('total_member_register_reword')->default(0);
+            $table->decimal('total_member_register_reword_amount', 14, 2)->default(0);
+            $table->decimal('rate', 14, 4)->default(1);
             $table->timestamps();
         });
     }
