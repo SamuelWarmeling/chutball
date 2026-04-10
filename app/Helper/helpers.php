@@ -321,6 +321,10 @@ if (! function_exists('user_total_bets')) {
             return 0;
         }
 
+        if (! \Illuminate\Support\Facades\Schema::hasTable('bets')) {
+            return 0;
+        }
+
         return Bet::where('user_id', $user->id)->count();
     }
 }
@@ -403,6 +407,10 @@ if (! function_exists('user_guaranteed_bets_today')) {
         $user = $user ?: user();
 
         if (! $user) {
+            return 0;
+        }
+
+        if (! \Illuminate\Support\Facades\Schema::hasTable('bets')) {
             return 0;
         }
 

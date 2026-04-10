@@ -29,16 +29,29 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
     public function dashboard()
     {
-        $matches = FootballMatch::where('status', 'scheduled')->orderBy('starts_at')->get();
-        $recentBets = Bet::with('match')->where('user_id', auth()->id())->latest()->take(3)->get();
+        $matches = collect();
+        $recentBets = collect();
+        $betsCount = 0;
+        $pendingBets = 0;
 
-        return view('app.main.index', compact('matches', 'recentBets'));
+        if (Schema::hasTable('football_matches')) {
+            $matches = FootballMatch::where('status', 'scheduled')->orderBy('starts_at')->get();
+        }
+
+        if (Schema::hasTable('bets')) {
+            $recentBets = Bet::with('match')->where('user_id', auth()->id())->latest()->take(3)->get();
+            $betsCount = Bet::where('user_id', auth()->id())->count();
+            $pendingBets = Bet::where('user_id', auth()->id())->where('status', 'pending')->count();
+        }
+
+        return view('app.main.index', compact('matches', 'recentBets', 'betsCount', 'pendingBets'));
     }
    public function single_deposit__pay($amount, $channel)
     {
@@ -527,4 +540,3 @@ class UserController extends Controller
     }
 
 }
-

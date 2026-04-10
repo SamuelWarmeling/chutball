@@ -62,10 +62,6 @@
     </style>
 </head>
 <body>
-    @php
-        $betsCount = \App\Models\Bet::where('user_id', auth()->id())->count();
-        $pendingBets = \App\Models\Bet::where('user_id', auth()->id())->where('status', 'pending')->count();
-    @endphp
     <div class="shell">
         <section class="hero">
             <div class="top-actions">
