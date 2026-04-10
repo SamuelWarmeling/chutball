@@ -10,12 +10,47 @@ use App\Models\User;
 use App\Models\UserLedger;
 use App\Models\Withdrawal;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Schema;
 
 class TeamController extends Controller
 {
     //
     public function team(){
         $user = Auth::user();
+
+        $emptyState = [
+            'first_level_users' => collect(),
+            'second_level_users' => collect(),
+            'third_level_users' => collect(),
+            'rebate' => null,
+            'team_size' => 0,
+            'lvTotalDeposit' => 0,
+            'lvTotalWithdraw' => 0,
+            'lv1Recharge' => 0,
+            'lv2Recharge' => 0,
+            'lv3Recharge' => 0,
+            'lv1Withdraw' => 0,
+            'lv2Withdraw' => 0,
+            'lv3Withdraw' => 0,
+            'activeMembers1' => 0,
+            'activeMembers2' => 0,
+            'activeMembers3' => 0,
+            'totalInvestment' => 0,
+            'levelTotalCommission1' => 0,
+            'levelTotalCommission2' => 0,
+            'levelTotalCommission3' => 0,
+            'totalLevelInvest1' => 0,
+            'totalLevelInvest2' => 0,
+            'totalLevelInvest3' => 0,
+        ];
+
+        if (! $user || ! Schema::hasTable('users')) {
+            return view('app.main.team.index_chutball', $emptyState);
+        }
+
+        if (! Schema::hasColumn('users', 'ref_by') || ! Schema::hasColumn('users', 'ref_id') || empty($user->ref_id)) {
+            return view('app.main.team.index_chutball', $emptyState);
+        }
 
         //First Level Users
         $first_level_users = User::where('ref_by', $user->ref_id)->get();
@@ -50,30 +85,35 @@ class TeamController extends Controller
         $second_ids = $second_level_users->pluck('id'); //Second
         $third_ids = $third_level_users->pluck('id'); //Third
 
-        $lv1Recharge = Deposit::whereIn('user_id', $first_ids)->where('status', 'approved')->sum('amount');
-        $lv2Recharge = Deposit::whereIn('user_id', $second_ids)->where('status', 'approved')->sum('amount');
-        $lv3Recharge = Deposit::whereIn('user_id', $third_ids)->where('status', 'approved')->sum('amount');
+        $hasDeposits = Schema::hasTable('deposits');
+        $hasWithdrawals = Schema::hasTable('withdrawals');
+        $hasPurchases = Schema::hasTable('purchases');
+        $hasLedgers = Schema::hasTable('user_ledgers');
+
+        $lv1Recharge = $hasDeposits ? Deposit::whereIn('user_id', $first_ids)->where('status', 'approved')->sum('amount') : 0;
+        $lv2Recharge = $hasDeposits ? Deposit::whereIn('user_id', $second_ids)->where('status', 'approved')->sum('amount') : 0;
+        $lv3Recharge = $hasDeposits ? Deposit::whereIn('user_id', $third_ids)->where('status', 'approved')->sum('amount') : 0;
         $lvTotalDeposit = $lv1Recharge + $lv2Recharge + $lv3Recharge;
 
-        $lv1Withdraw = Withdrawal::whereIn('user_id', $first_ids)->where('status', 'approved')->sum('amount');
-        $lv2Withdraw = Withdrawal::whereIn('user_id', $second_ids)->where('status', 'approved')->sum('amount');
-        $lv3Withdraw = Withdrawal::whereIn('user_id', $third_ids)->where('status', 'approved')->sum('amount');
+        $lv1Withdraw = $hasWithdrawals ? Withdrawal::whereIn('user_id', $first_ids)->where('status', 'approved')->sum('amount') : 0;
+        $lv2Withdraw = $hasWithdrawals ? Withdrawal::whereIn('user_id', $second_ids)->where('status', 'approved')->sum('amount') : 0;
+        $lv3Withdraw = $hasWithdrawals ? Withdrawal::whereIn('user_id', $third_ids)->where('status', 'approved')->sum('amount') : 0;
         $lvTotalWithdraw = $lv1Withdraw + $lv2Withdraw + $lv3Withdraw;
 
-        $activeMembers1 = Deposit::whereIn('user_id', $first_ids)->where('status', 'approved')->groupBy('user_id')->count();
-        $activeMembers2 = Deposit::whereIn('user_id', $second_ids)->where('status', 'approved')->groupBy('user_id')->count();
-        $activeMembers3 = Deposit::whereIn('user_id', $third_ids)->where('status', 'approved')->groupBy('user_id')->count();
+        $activeMembers1 = $hasDeposits ? Deposit::whereIn('user_id', $first_ids)->where('status', 'approved')->distinct('user_id')->count('user_id') : 0;
+        $activeMembers2 = $hasDeposits ? Deposit::whereIn('user_id', $second_ids)->where('status', 'approved')->distinct('user_id')->count('user_id') : 0;
+        $activeMembers3 = $hasDeposits ? Deposit::whereIn('user_id', $third_ids)->where('status', 'approved')->distinct('user_id')->count('user_id') : 0;
 
-        $totalInvestment = Purchase::whereIn('user_id', array_merge($first_ids->toArray(), $second_ids->toArray(), $third_ids->toArray()))->sum('amount');
-        $totalLevelInvest1 = Purchase::whereIn('user_id', array_merge($first_ids->toArray()))->sum('amount');
-        $totalLevelInvest2 = Purchase::whereIn('user_id', array_merge($second_ids->toArray()))->sum('amount');
-        $totalLevelInvest3 = Purchase::whereIn('user_id', array_merge($third_ids->toArray()))->sum('amount');
+        $totalInvestment = $hasPurchases ? Purchase::whereIn('user_id', array_merge($first_ids->toArray(), $second_ids->toArray(), $third_ids->toArray()))->sum('amount') : 0;
+        $totalLevelInvest1 = $hasPurchases ? Purchase::whereIn('user_id', $first_ids->toArray())->sum('amount') : 0;
+        $totalLevelInvest2 = $hasPurchases ? Purchase::whereIn('user_id', $second_ids->toArray())->sum('amount') : 0;
+        $totalLevelInvest3 = $hasPurchases ? Purchase::whereIn('user_id', $third_ids->toArray())->sum('amount') : 0;
 
-        $levelTotalCommission1 = UserLedger::where('user_id', \auth()->id())->where('reason', 'commission')->where('step', 'first')->sum('amount');
-        $levelTotalCommission2 = UserLedger::where('user_id', \auth()->id())->where('reason', 'commission')->where('step', 'second')->sum('amount');
-        $levelTotalCommission3 = UserLedger::where('user_id', \auth()->id())->where('reason', 'commission')->where('step', 'third')->sum('amount');
+        $levelTotalCommission1 = $hasLedgers ? UserLedger::where('user_id', auth()->id())->where('reason', 'commission')->where('step', 'first')->sum('amount') : 0;
+        $levelTotalCommission2 = $hasLedgers ? UserLedger::where('user_id', auth()->id())->where('reason', 'commission')->where('step', 'second')->sum('amount') : 0;
+        $levelTotalCommission3 = $hasLedgers ? UserLedger::where('user_id', auth()->id())->where('reason', 'commission')->where('step', 'third')->sum('amount') : 0;
 
-        $rebate = Rebate::first();
+        $rebate = Schema::hasTable('rebates') ? Rebate::first() : null;
 
         return view('app.main.team.index_chutball', compact(
             'first_level_users',
@@ -105,6 +145,10 @@ class TeamController extends Controller
     public function level($level = null)
     {
         $user = Auth::user();
+
+        if (! $user || ! Schema::hasTable('users') || ! Schema::hasColumn('users', 'ref_by') || ! Schema::hasColumn('users', 'ref_id') || empty($user->ref_id)) {
+            return  view('app.main.team.level', compact('level'))->with('users', collect());
+        }
 
         //First Level Users
         $first_level_users = User::where('ref_by', $user->ref_id)->get();

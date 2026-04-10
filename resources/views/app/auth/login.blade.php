@@ -1,256 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CHUTBALL | Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Login | CHUTBALL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-main: #CFE8D5;
-            --bg-grad-a: #e7f5ea;
-            --bg-grad-b: #b9d9c3;
-            --accent: #3A86FF;
-            --success: #38B000;
+            --bg-a: #92e5d6;
+            --bg-b: #c8f3df;
+            --bg-c: #eef8f0;
+            --accent: #25b85a;
+            --accent-blue: #3A86FF;
+            --accent-dark: #1d9548;
+            --card-light: rgba(255, 255, 255, 0.92);
+            --text-main: #243044;
+            --text-soft: #65748b;
             --danger: #E63946;
-            --card: #F5F5F5;
-            --line: #d7e2da;
-            --text: #17324d;
-            --muted: #6d7f77;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            font-family: 'Montserrat', sans-serif;
-            background: var(--bg-main);
-        }
-
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: var(--text-main);
             background:
-                radial-gradient(circle at top left, rgba(58, 134, 255, 0.16), transparent 28%),
-                radial-gradient(circle at bottom right, rgba(56, 176, 0, 0.12), transparent 24%),
-                linear-gradient(145deg, var(--bg-grad-a) 0%, var(--bg-main) 46%, var(--bg-grad-b) 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+                radial-gradient(circle at 18% 16%, rgba(255,255,255,.34), transparent 22%),
+                radial-gradient(circle at 82% 28%, rgba(255,255,255,.28), transparent 18%),
+                radial-gradient(circle at 50% 72%, rgba(255,255,255,.18), transparent 24%),
+                linear-gradient(180deg, var(--bg-a) 0%, var(--bg-b) 52%, var(--bg-c) 100%);
         }
-
-        .login-wrapper {
-            width: 85%;
-            max-width: 380px;
-            background: rgba(245, 245, 245, 0.74);
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 18px 60px rgba(23, 50, 77, 0.12);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 28px 24px;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .logo-img {
-            width: 110px;
-            margin-bottom: 15px;
-        }
-
-        .p1 {
-            color: var(--text);
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-        }
-
-        .p1 span {
-            color: var(--accent);
-        }
-
-        /* --- SOLID INPUT STYLE --- */
-        .input-group {
-            margin-bottom: 15px;
-        }
-
-        .label-text {
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            display: block;
-            letter-spacing: 1px;
-        }
-
-        .input-box {
-            background: rgba(255,255,255,0.9);
-            border: 2px solid var(--line);
-            border-radius: 14px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            transition: 0.3s ease;
-        }
-
-        .input-box:focus-within {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12);
-        }
-
-        .phone-left p {
-            color: var(--text);
-            font-weight: 700;
-            margin-right: 12px;
-            padding-right: 12px;
-            border-right: 2px solid var(--line);
-        }
-
-        .van-field__control {
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--text);
-            width: 100%;
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .van-field__control::placeholder {
-            color: var(--muted);
-        }
-
-        /* --- TABS --- */
-        .tabs-wrap {
-            display: flex;
-            justify-content: flex-start;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .tabs-wrap p {
-            color: var(--muted);
-            font-weight: 700;
-            font-size: 0.9rem;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .tabs-wrap p.ac {
-            color: var(--text);
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 5px;
-        }
-
-        /* --- BUTTONS --- */
-        .forgot {
-            display: block;
-            text-align: right;
-            color: var(--muted);
-            font-size: 0.8rem;
-            margin-top: 10px;
-            margin-bottom: 30px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .btnsign {
-            background: linear-gradient(135deg, #3A86FF 0%, #62a2ff 100%);
-            color: #fff;
-            width: 100%;
-            height: 55px;
-            border: none;
-            border-radius: 14px;
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 12px 24px rgba(58, 134, 255, 0.28);
-            transition: 0.2s;
-        }
-
-        .btnsign:active {
-            transform: translateY(3px);
-            box-shadow: 0 4px 12px rgba(58, 134, 255, 0.2);
-        }
-
-        .alert {
-            border-radius: 14px;
-            padding: 12px 14px;
-            margin-bottom: 18px;
-            font-size: 0.88rem;
-            line-height: 1.45;
-            font-weight: 600;
-        }
-
-        .alert-error {
-            background: rgba(230, 57, 70, 0.12);
-            color: #8f1d28;
-            border: 1px solid rgba(230, 57, 70, 0.22);
-        }
-
-        .alert-success {
-            background: rgba(56, 176, 0, 0.12);
-            color: #246d00;
-            border: 1px solid rgba(56, 176, 0, 0.22);
-        }
+        .shell { max-width: 430px; min-height: 100vh; margin: 0 auto; padding: 22px 16px 28px; }
+        .hero { position: relative; overflow: hidden; padding: 8px 4px 18px; }
+        .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(255,255,255,.18) 0 8%, transparent 8% 14%, rgba(255,255,255,.12) 14% 17%, transparent 17% 100%); opacity: .45; pointer-events: none; }
+        .top-actions { position: relative; z-index: 1; display: flex; justify-content: flex-end; gap: 14px; margin-bottom: 20px; color: #2a4c52; }
+        .brand-row { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+        .avatar { width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #fefefe 0%, #d9f8e8 100%); display: flex; align-items: center; justify-content: center; color: var(--accent-dark); box-shadow: 0 10px 18px rgba(37, 184, 90, 0.15); border: 2px solid rgba(255, 255, 255, 0.75); flex-shrink: 0; }
+        .brand-meta small { display: block; font-size: .72rem; color: #4d6b70; margin-bottom: 4px; }
+        .brand-meta h1 { margin: 0; font-size: 1.45rem; font-weight: 700; letter-spacing: .01em; }
+        .brand-meta p { margin: 3px 0 0; color: #3f5961; font-size: .92rem; line-height: 1.45; }
+        .auth-card { background: var(--card-light); border: 1px solid rgba(255,255,255,.55); border-radius: 24px; box-shadow: 0 14px 28px rgba(40, 76, 82, 0.08); padding: 18px 16px 20px; }
+        .logo { display: flex; justify-content: center; margin-bottom: 10px; }
+        .logo img { width: 108px; height: auto; }
+        .tabs { display: flex; gap: 22px; margin-bottom: 18px; }
+        .tabs a, .tabs span { text-decoration: none; color: var(--text-soft); font-size: 1rem; font-weight: 700; padding-bottom: 6px; }
+        .tabs .active { color: var(--text-main); border-bottom: 3px solid var(--accent-blue); }
+        .alert { border-radius: 14px; padding: 12px 14px; margin-bottom: 16px; font-size: .88rem; line-height: 1.45; font-weight: 700; background: rgba(230, 57, 70, 0.12); color: #8f1d28; border: 1px solid rgba(230, 57, 70, 0.22); }
+        .field { margin-bottom: 14px; }
+        .field label { display: block; margin-bottom: 8px; color: var(--accent-blue); text-transform: uppercase; font-size: .76rem; letter-spacing: .08em; font-weight: 700; }
+        .input-box { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.95); border: 2px solid #dce7de; border-radius: 16px; padding: 0 16px; min-height: 60px; transition: .2s ease; }
+        .input-box:focus-within { border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12); }
+        .prefix { color: var(--text-main); font-weight: 700; padding-right: 12px; border-right: 2px solid #dce7de; }
+        .input-box input { width: 100%; border: none; background: transparent; outline: none; color: var(--text-main); font-size: 1rem; font-family: inherit; }
+        .input-box input::placeholder { color: #7d8c93; }
+        .forgot { display: block; text-align: right; margin: 4px 0 18px; color: var(--text-soft); text-decoration: none; font-size: .88rem; font-weight: 700; }
+        .btn { width: 100%; border: none; border-radius: 16px; padding: 16px; color: #fff; font-size: 1rem; font-weight: 900; text-transform: uppercase; background: linear-gradient(135deg, #3A86FF 0%, #62a2ff 100%); box-shadow: 0 14px 26px rgba(58, 134, 255, 0.28); cursor: pointer; }
     </style>
 </head>
 <body>
-
-<div class="login-wrapper">
-    <header>
-        <img src="/green/logo.webp" alt="CHUTBALL" class="logo-img">
-        <p class="p1">CHUTBALL<span>.</span></p>
-    </header>
-
-    <div class="tabs-wrap">
-        <p class="ac">Login</p>
-        <p onclick="window.location.href='{{route ('register')}}'">Cadastro</p>
+    <div class="shell">
+        <section class="hero">
+            <div class="top-actions">
+                <i class="fa-regular fa-envelope"></i>
+                <i class="fa-solid fa-headset"></i>
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <div class="brand-row">
+                <div class="avatar"><i class="fa-solid fa-futbol"></i></div>
+                <div class="brand-meta">
+                    <small>Acesso do jogador</small>
+                    <h1>CHUTBALL</h1>
+                    <p>Entre para montar seus bilhetes, acompanhar saldo e operar a plataforma no mesmo visual do app.</p>
+                </div>
+            </div>
+        </section>
+        <section class="auth-card">
+            <div class="logo">
+                <img src="/green/logo.webp" alt="CHUTBALL">
+            </div>
+            <div class="tabs">
+                <span class="active">Login</span>
+                <a href="{{ route('register') }}">Cadastro</a>
+            </div>
+            @if (session('error'))
+                <div class="alert">{{ session('error') }}</div>
+            @endif
+            @if ($errors->any())
+                <div class="alert">{{ $errors->first() }}</div>
+            @endif
+            @if (session('success'))
+                <div class="alert" style="background:rgba(56,176,0,.12); color:#246d00; border-color:rgba(56,176,0,.22);">{{ session('success') }}</div>
+            @endif
+            <form action="{{ route('login') }}" method="post">
+                @csrf
+                <div class="field">
+                    <label>Numero de telefone</label>
+                    <div class="input-box">
+                        <div class="prefix">+55</div>
+                        <input type="tel" name="phone" placeholder="Seu telefone" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Senha</label>
+                    <div class="input-box">
+                        <input type="password" name="password" placeholder="Sua senha" required>
+                    </div>
+                </div>
+                <a href="#" class="forgot">Esqueceu a senha?</a>
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+        </section>
     </div>
-
-    @if (session('error'))
-        <div class="alert alert-error">{{ session('error') }}</div>
-    @endif
-
-    @if ($errors->any())
-        <div class="alert alert-error">{{ $errors->first() }}</div>
-    @endif
-
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
-    @endif
-
-    <form action="{{route ('login')}}" method="post">
-        @csrf
-        
-        <div class="input-group">
-            <span class="label-text">Numero de telefone</span>
-            <div class="input-box">
-                <div class="phone-left"><p>+55</p></div>
-                <input type="tel" name="phone" class="van-field__control" placeholder="Seu telefone" required>
-            </div>
-        </div>
-
-        <div class="input-group">
-            <span class="label-text">Senha</span>
-            <div class="input-box">
-                <input type="password" name="password" class="van-field__control" placeholder="Sua senha" required>
-            </div>
-        </div>
-
-        <a href="#" class="forgot">Esqueceu a senha?</a>
-        
-        <button type="submit" class="btnsign">Entrar</button>
-    </form>
-</div>
-
 </body>
 </html>

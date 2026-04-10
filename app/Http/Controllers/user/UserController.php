@@ -180,7 +180,32 @@ class UserController extends Controller
 
     public function commission()
     {
-        return view('app.main.commission');
+        $myCommissions = collect();
+        $teamCommissions = collect();
+
+        if (Schema::hasTable('user_ledgers')) {
+            $myCommissions = UserLedger::where('user_id', auth()->id())
+                ->where('reason', 'my_commission')
+                ->latest()
+                ->get();
+
+            $teamCommissions = UserLedger::where('user_id', auth()->id())
+                ->where('reason', 'commission')
+                ->latest()
+                ->get()
+                ->map(function ($ledger) {
+                    $ledger->source_ref = null;
+
+                    if (! empty($ledger->get_balance_from_user_id)) {
+                        $from = User::find($ledger->get_balance_from_user_id);
+                        $ledger->source_ref = $from?->ref_id;
+                    }
+
+                    return $ledger;
+                });
+        }
+
+        return view('app.main.commission', compact('myCommissions', 'teamCommissions'));
     }
 
     public function package_details($id)
