@@ -32,69 +32,8 @@ class RegisteredUserController extends Controller
      */
     public function create(Request $request)
     {
-        $vari_const_sources = [
-            's1'=> [
-                'code'=> '8955',
-                'img'=> asset('public/code/1.png')
-            ],
-            's2'=> [
-                'code'=> '7183',
-                'img'=> asset('public/code/2.png')
-            ],
-            's3'=> [
-                'code'=> '4060',
-                'img'=> asset('public/code/3.png')
-            ],
-            's4'=> [
-                'code'=> '5726',
-                'img'=> asset('public/code/4.png')
-            ],
-            's5'=> [
-                'code'=> '0009',
-                'img'=> asset('public/code/5.png')
-            ],
-            's6'=> [
-                'code'=> '5408',
-                'img'=> asset('public/code/6.png')
-            ],
-            's7'=> [
-                'code'=> '5076',
-                'img'=> asset('public/code/7.png')
-            ],
-            's8'=> [
-                'code'=> '0133',
-                'img'=> asset('public/code/8.png')
-            ],
-            's9'=> [
-                'code'=> '4153',
-                'img'=> asset('public/code/9.png')
-            ],
-            's10'=> [
-                'code'=> '7329',
-                'img'=> asset('public/code/10.png')
-            ],
-            's11'=> [
-                'code'=> '0738',
-                'img'=> asset('public/code/11.png')
-            ],
-            's12'=> [
-                'code'=> '6163',
-                'img'=> asset('public/code/12.png')
-            ],
-            's13'=> [
-                'code'=> '6444',
-                'img'=> asset('public/code/13.png')
-            ],
-            's14'=> [
-                'code'=> '9436',
-                'img'=> asset('public/code/14.png')
-            ]
-        ];
-        $index = rand(1, count($vari_const_sources));
-        $code = $vari_const_sources['s'.(string)$index];
-
         $ref_by = $request->query('inviteCode');
-        return view('app.auth.registration', compact('ref_by', 'code'));
+        return view('app.auth.registration', compact('ref_by'));
     }
 
     /**
@@ -107,7 +46,7 @@ class RegisteredUserController extends Controller
         $validate = Validator::make($request->all(), [
             'phone' => ['required', 'numeric', 'unique:users,phone'],
             'password' => ['required'],
-            'ref_by' => ['required'],
+            'ref_by' => ['nullable'],
             ]);
             
             
@@ -127,9 +66,11 @@ class RegisteredUserController extends Controller
 //            return back()->with('message', 'An account exists in your device');
 //        }
 
-        if ($request->ref_by){
+        $refBy = null;
+        if ($request->filled('ref_by')) {
             $getUser = User::where('ref_id', $request->ref_by)->first();
             if ($getUser){
+                $refBy = $getUser->ref_id;
                 $first_level_users = User::where('ref_by', $getUser->ref_id)->count();
                 if ($first_level_users <= setting('total_member_register_reword')){
                     $getUser->rebate_balance = $getUser->rebate_balance + setting('total_member_register_reword_amount');
@@ -147,11 +88,8 @@ class RegisteredUserController extends Controller
                         $ledger->date = now();
                         $ledger->save();
                     }
-
                 }
             }
-        }else{
-            return back()->with('message', ' Invitation code is required');
         }
 
         //Check refer code is next time edit
@@ -159,7 +97,7 @@ class RegisteredUserController extends Controller
             'name' => 'User'.rand(22,99),
             'username' => 'uname'.$request->phone,
             'ref_id' => $this->ref_code().$this->ref_code(),
-            'ref_by' => $request->ref_by ?? $this->ref_code().$this->ref_code(),
+            'ref_by' => $refBy,
             'email' => 'user'.rand(11111,99999).time().'@gmail.com',
             'password' => Hash::make($request->password),
             'type' => 'user',
@@ -210,4 +148,3 @@ class RegisteredUserController extends Controller
         return response()->json(['captcha'=> captcha_img()]);
     }
 }
-

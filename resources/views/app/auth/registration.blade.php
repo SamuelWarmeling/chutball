@@ -184,6 +184,27 @@
             transform: translateY(3px);
             box-shadow: 0 4px 12px rgba(58, 134, 255, 0.2);
         }
+
+        .alert {
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .alert-error {
+            background: rgba(230, 57, 70, 0.12);
+            color: #8f1d28;
+            border: 1px solid rgba(230, 57, 70, 0.22);
+        }
+
+        .alert-success {
+            background: rgba(56, 176, 0, 0.12);
+            color: #246d00;
+            border: 1px solid rgba(56, 176, 0, 0.22);
+        }
     </style>
 </head>
 <body>
@@ -197,6 +218,24 @@
         <p class="ac">Cadastro</p>
         <p onclick="window.location.href='{{route ('login')}}'">Login</p>
     </div>
+
+    @if (session('message'))
+        <div class="alert alert-error">
+            @if (is_object(session('message')))
+                {{ session('message')->first() }}
+            @else
+                {{ session('message') }}
+            @endif
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-error">{{ $errors->first() }}</div>
+    @endif
+
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
     <form action="{{url('register')}}" method="post">
         @csrf
@@ -215,34 +254,10 @@
                 <input type="password" name="password" class="van-field__control" placeholder="Sua senha" required>
             </div>
         </div>
-<div class="input-group">
-    <span class="label-text">Codigo de verificacao</span>
-    <div style="display: flex; gap: 10px; align-items: center;">
-        <div class="input-box" style="flex: 1; margin-bottom: 0;">
-            <input type="text" id="captchaInput" name="captcha" class="van-field__control" placeholder="Digite o codigo" required>
-        </div>
-        
-        <div id="captchaBox" onclick="generateCaptcha()" 
-             style="background: linear-gradient(135deg, #3A86FF 0%, #62a2ff 100%); color: #fff; height: 50px; min-width: 100px; border-radius: 14px; 
-                    display: flex; align-items: center; justify-content: center; font-weight: 800; 
-                    font-size: 1.2rem; letter-spacing: 3px; cursor: pointer; user-select: none; 
-                    text-decoration: line-through; box-shadow: inset 0 0 5px rgba(0,0,0,0.2);">
-            <script>document.write(Math.floor(1000 + Math.random() * 9000));</script>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Click karne par naya code generate karne ke liye
-    function generateCaptcha() {
-        const randomNo = Math.floor(1000 + Math.random() * 9000);
-        document.getElementById("captchaBox").innerHTML = randomNo;
-    }
-</script>
         <div class="input-group">
             <span class="label-text">Codigo de convite</span>
             <div class="input-box">
-                <input name="ref_by" value="{{isset($ref_by) && !empty($ref_by) ? $ref_by : rand(1111,9999)}}" type="text" class="van-field__control" placeholder="Codigo opcional">
+                <input name="ref_by" value="{{ isset($ref_by) && !empty($ref_by) ? $ref_by : '' }}" type="text" class="van-field__control" placeholder="Opcional">
             </div>
         </div>
 
@@ -253,5 +268,4 @@
 </div>
 
 </body>
-@include('partials.preloader')
 </html>
