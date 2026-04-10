@@ -15,13 +15,16 @@ return new class extends Migration
     {
         Schema::create('user_ledgers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('get_balance_from_user_id')->nullable();
             $table->string('reason');
             $table->string('perticulation')->nullable();
-            $table->double('amount', 2)->default(0);
-            $table->double('debit', 2)->default(0);
-            $table->double('credit', 2)->default(0);
+            $table->decimal('amount', 14, 2)->default(0);
+            $table->decimal('debit', 14, 2)->default(0);
+            $table->decimal('credit', 14, 2)->default(0);
             $table->enum('status', ['pending', 'approved', 'rejected', 'default'])->default('default');
+            $table->string('date')->nullable();
+            $table->string('step', 20)->nullable();
             $table->timestamps();
         });
     }

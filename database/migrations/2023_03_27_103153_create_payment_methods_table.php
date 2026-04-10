@@ -15,15 +15,15 @@ return new class extends Migration
     {
         Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 32);
-            $table->string('photo');
-            $table->string('number', 15);
-            $table->double('minimum_recharge', 2);
-            $table->double('maximum_recharge', 2);
-            $table->double('recharge_charge', 2);
-            $table->double('minimum_withdraw', 2);
-            $table->double('maximum_withdraw', 2);
-            $table->double('withdraw_charge', 2);
+            $table->string('type', 32)->default('pix');
+            $table->string('channel', 64);
+            $table->string('receiver', 120)->nullable();
+            $table->string('address', 191)->nullable();
+            $table->decimal('minimum', 14, 2)->default(20);
+            $table->decimal('maximum', 14, 2)->default(100000);
+            $table->decimal('minimum_withdraw', 14, 2)->default(20);
+            $table->decimal('maximum_withdraw', 14, 2)->default(100000);
+            $table->decimal('withdraw_charge', 6, 2)->default(7);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

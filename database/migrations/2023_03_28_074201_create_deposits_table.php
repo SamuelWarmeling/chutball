@@ -15,16 +15,21 @@ return new class extends Migration
     {
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('method_name');
-            $table->string('method_number');
-            $table->string('order_id');
-            $table->string('transaction_id');
-            $table->string('number')->comment('User Number');
-            $table->string('amount')->comment('User Deposit Amount');
-            $table->string('date');
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('payment_method_id')->nullable()->constrained('payment_methods')->nullOnDelete();
+            $table->string('method_name')->nullable();
+            $table->string('method_number')->nullable();
+            $table->string('channel')->nullable();
+            $table->string('address')->nullable();
+            $table->string('order_id')->nullable()->unique();
+            $table->string('transaction_id')->nullable();
+            $table->string('number')->nullable()->comment('User Number');
+            $table->decimal('amount', 14, 2)->default(0)->comment('User Deposit Amount');
+            $table->decimal('final_amount', 14, 2)->default(0);
+            $table->decimal('usdt', 14, 4)->nullable();
+            $table->dateTime('date')->nullable();
             $table->text('feedback')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('inactive');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }
