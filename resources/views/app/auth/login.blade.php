@@ -11,7 +11,7 @@
             --bg-b: #c8f3df;
             --bg-c: #eef8f0;
             --accent: #25b85a;
-            --accent-blue: #3A86FF;
+            --accent-blue: #25b85a;
             --accent-dark: #1d9548;
             --card-light: rgba(255, 255, 255, 0.92);
             --text-main: #243044;
@@ -54,7 +54,7 @@
         .input-box input { width: 100%; border: none; background: transparent; outline: none; color: var(--text-main); font-size: 1rem; font-family: inherit; }
         .input-box input::placeholder { color: #7d8c93; }
         .forgot { display: block; text-align: right; margin: 4px 0 18px; color: var(--text-soft); text-decoration: none; font-size: .88rem; font-weight: 700; }
-        .btn { width: 100%; border: none; border-radius: 16px; padding: 16px; color: #fff; font-size: 1rem; font-weight: 900; text-transform: uppercase; background: linear-gradient(135deg, #3A86FF 0%, #62a2ff 100%); box-shadow: 0 14px 26px rgba(58, 134, 255, 0.28); cursor: pointer; }
+        .btn { width: 100%; border: none; border-radius: 16px; padding: 16px; color: #fff; font-size: 1rem; font-weight: 900; text-transform: uppercase; background: linear-gradient(135deg, #25b85a 0%, #47cd77 100%); box-shadow: 0 14px 26px rgba(37, 184, 90, 0.28); cursor: pointer; }
     </style>
 </head>
 <body>
