@@ -37,6 +37,24 @@ Route::get('clear', function () {
     return redirect()->back();
 });
 
+Route::get('render-sync/{token}', function ($token) {
+    abort_unless(hash_equals($token, 'chutball-sync-20260409'), 403);
+
+    $output = [];
+
+    Artisan::call('optimize:clear');
+    $output[] = trim(Artisan::output());
+
+    Artisan::call('migrate', ['--force' => true]);
+    $output[] = trim(Artisan::output());
+
+    return response(
+        "<pre>".e(implode("\n\n", array_filter($output)))."</pre>",
+        200,
+        ['Content-Type' => 'text/html; charset=UTF-8']
+    );
+});
+
 Route::middleware('throttle:limit-check')->group(function () {
     Route::prefix('adminr')->group(function () {
         Route::get('/', function () {
