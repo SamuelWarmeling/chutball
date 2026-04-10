@@ -234,7 +234,7 @@
         <div class="input-group">
             <span class="label-text">Numero de telefone</span>
             <div class="input-box">
-                <div class="phone-left"><p>+233</p></div>
+                <div class="phone-left"><p>+55</p></div>
                 <input type="tel" name="phone" class="van-field__control" placeholder="Seu telefone" required>
             </div>
         </div>
