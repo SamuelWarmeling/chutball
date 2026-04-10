@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\Checkin;
-use App\Models\Commission;
 use App\Models\Deposit;
-use App\Models\Improvment;
-use App\Models\LuckyLedger;
 use App\Models\Purchase;
 use App\Models\Rebate;
 use App\Models\User;
 use App\Models\UserLedger;
 use App\Models\Withdrawal;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller

@@ -15,45 +15,12 @@ use App\Http\Controllers\admin\RebateController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\TaskController;
 use App\Http\Controllers\admin\VipSliderController;
-use App\Http\Controllers\Api\OnepayController;
-use App\Http\Controllers\Api\XlPayController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\user\MiningController;
 use App\Http\Controllers\user\PurchaseController;
-use App\Http\Controllers\user\SpinController;
 use App\Http\Controllers\user\TeamController;
 use App\Http\Controllers\user\UserController;
 use App\Http\Controllers\user\WithdrawController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-
-Route::get('clear', function () {
-    // return \App\Models\Withdrawal::where('status', 'approved')->sum('amount');
-
-    Artisan::call('route:clear');
-    Artisan::call('view:clear');
-    Artisan::call('cache:clear');
-    Artisan::call('config:clear');
-    return redirect()->back();
-});
-
-Route::get('render-sync/{token}', function ($token) {
-    abort_unless(hash_equals($token, 'chutball-sync-20260409'), 403);
-
-    $output = [];
-
-    Artisan::call('optimize:clear');
-    $output[] = trim(Artisan::output());
-
-    Artisan::call('migrate', ['--force' => true]);
-    $output[] = trim(Artisan::output());
-
-    return response(
-        "<pre>".e(implode("\n\n", array_filter($output)))."</pre>",
-        200,
-        ['Content-Type' => 'text/html; charset=UTF-8']
-    );
-});
 
 Route::middleware('throttle:limit-check')->group(function () {
     Route::prefix('adminr')->group(function () {
@@ -212,12 +179,7 @@ Route::middleware('throttle:limit-check')->group(function () {
         Route::get('/home', [UserController::class, 'dashboard'])->name('dashboard');
         Route::get('/match-details/{id}', [UserController::class, 'package_details'])->name('match.details');
         Route::get('/package-details/{id}', [UserController::class, 'package_details'])->name('package.details');
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
         Route::get('setting', [UserController::class, 'setting'])->name('setting');
-
         Route::post('change-password', [UserController::class, 'setting_change_password'])->name('setting.change.password');
 
         Route::get('/change/password', [ProfileController::class, 'change_password'])->name('user.change.password');
@@ -238,8 +200,6 @@ Route::middleware('throttle:limit-check')->group(function () {
         //deposit
         Route::get('/deposit', [UserController::class, 'recharge'])->name('user.deposit');
         Route::get('/deposit/{amount}', [UserController::class, 'recharge_amount'])->name('user.deposit.amount');
-        Route::get('user/payment/{amount}/{method}', [UserController::class, 'payment_confirm']);
-        Route::post('user/payment/submit', [UserController::class, 'depositSubmit'])->name('depositSubmit');
 
         //Withdraw
         Route::get('withdraw', [WithdrawController::class, 'withdraw'])->name('user.withdraw');
@@ -248,21 +208,13 @@ Route::middleware('throttle:limit-check')->group(function () {
         //Ledger
         Route::get('recharge/history', [UserController::class, 'recharge_history'])->name('recharge.history');
         Route::get('withdraw/history', [WithdrawController::class, 'withdraw_history'])->name('withdraw.history');
-        Route::get('commission/history', [UserController::class, 'commission'])->name('commission');
-        Route::get('task/history', [UserController::class, 'task_history'])->name('task.history');
-        Route::get('reword/history', [UserController::class, 'reword_history'])->name('reword.history');
-        Route::get('spin/history', [SpinController::class, 'spin_history'])->name('spin.history');
-        Route::get('amount/history', [UserController::class, 'amount_history'])->name('user.balance.history');
+        Route::get('commission', [UserController::class, 'commission'])->name('commission');
 
         //VIP
         Route::get('/vip', [UserController::class, 'vip'])->name('vip');
         Route::get('/vip/details/{id}', [UserController::class, 'vip_details']);
         Route::get('/history', [UserController::class, 'history'])->name('history');
-        Route::get('/all/history', [UserController::class, 'history_all'])->name('history.all');
         Route::get('/ordered', [UserController::class, 'ordered'])->name('ordered');
-        Route::get('/vip/commission', [UserController::class, 'vip_commission'])->name('vip.commission');
-        Route::get('/task', [UserController::class, 'task'])->name('task');
-        Route::get('purchase/vip/{id}', [PurchaseController::class, 'purchase_vip'])->name('user.purchase.vip');
         Route::get('purchase/confirmation/{id}', [PurchaseController::class, 'purchaseConfirmation'])->name('purchase.confirmation');
         Route::post('purchase/confirmation/{id}', [PurchaseController::class, 'submitBet'])->name('bet.submit');
 
@@ -275,44 +227,11 @@ Route::middleware('throttle:limit-check')->group(function () {
         Route::get('level/{level?}', [TeamController::class, 'level'])->name('team.level');
         Route::get('purchase/history', [UserController::class, 'purchase_history'])->name('purchase.history');
 
-    
-
         Route::get('checkin', [UserController::class, 'checkin'])->name('checkin');
-                Route::get('checkinn', [UserController::class, 'checkinn'])->name('checkinn');
-        //checkin
-        Route::get('exchange', [UserController::class, 'exchange'])->name('exchange');
-
-     
-
-        //Bonus
-        Route::get('message', [UserController::class, 'message'])->name('message');
-        Route::post('submit-bonus-confirm', [SpinController::class, 'submitBonusCodeconfirm'])->name('user.submit-bonus-confirm');
-        Route::get('spin', [SpinController::class, 'spin'])->name('spin');
-        Route::get('submit-bonus-check/{code}', [SpinController::class, 'submitbonuscheck']);
-        Route::get('submit-bonus-amount/{code}', [SpinController::class, 'submitbonusamount']);
-
-        //checkin
-        Route::get('commission', [UserController::class, 'commission'])->name('commission');
-
-        //Investment
-        Route::get('received-amount', [MiningController::class, 'received_amount'])->name('user.received.amount');
-        Route::get('received-rebate/{rb}', [MiningController::class, 'received_rebate'])->name('user.received.rebate');
-        Route::get('apply-for-task-commission/{id}', [UserController::class, 'apply_task_commission']);
         Route::post('/payment-confirmation', [UserController::class, 'payment_Confirm'])->name('payment_confirmation');
     });
-    Route::get('get-target-reword-amount/{task_id}', [MiningController::class, 'apply_task_commission']);
     Route::get('download-apk', [UserController::class, 'download_apk'])->name('user.download.apk');
-
-    Route::get('xl-pay-collection/{amount}', [XlPayController::class, 'collectionCreate']);
-    Route::get('xl-pay-collection-trac  e', [XlPayController::class, 'collectionTrace']);
 });
- Route::get('siglepay/request/{amount}/{channel}', [UserController::class, 'single_deposit__pay']);
-        Route::post('/apiPayment', [UserController::class, 'apiPayment'])->name('apiPayment');
-
-Route::get('number/{method}', [UserController::class, 'return_pay_number']);
-Route::get('rechargeApi', [UserController::class, 'rechargeApi']);
-
-//CronJob
-Route::get('commission-interest', [AdminController::class, 'commission']);
+Route::get('siglepay/request/{amount}/{channel}', [UserController::class, 'single_deposit__pay']);
 
 require __DIR__ . '/auth.php';

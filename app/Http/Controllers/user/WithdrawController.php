@@ -3,18 +3,12 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\PaymentMethod;
 use App\Models\User;
-use App\Models\UserLedger;
 use App\Models\Withdrawal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\Models\Deposit;
 use App\Models\Bet;
-use App\Models\Purchase;
-use Carbon\Carbon;
 use Illuminate\Support\Str;
 
 class WithdrawController extends Controller

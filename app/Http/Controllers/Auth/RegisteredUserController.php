@@ -3,27 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Mail\RegistrationMail;
-use App\Models\Admin;
-use App\Models\BonusLedger;
-use App\Models\Package;
-use App\Models\Purchase;
 use App\Models\User;
 use App\Models\UserLedger;
-use App\Providers\RouteServiceProvider;
-use Carbon\Carbon;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use Illuminate\Validation\Rules;
-use Illuminate\View\View;
-use function GuzzleHttp\Promise\all;
 
 class RegisteredUserController extends Controller
 {
@@ -141,10 +127,5 @@ class RegisteredUserController extends Controller
             $refCode = $rand.$str1;
         }
         return $refCode;
-    }
-
-    public function refreshCaptcha()
-    {
-        return response()->json(['captcha'=> captcha_img()]);
     }
 }

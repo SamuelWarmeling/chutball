@@ -5,14 +5,9 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Bet;
 use App\Models\FootballMatch;
-use App\Models\Fund;
-use App\Models\FundInvest;
-use App\Models\Package;
-use App\Models\Purchase;
 use App\Models\Rebate;
 use App\Models\User;
 use App\Models\UserLedger;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -106,19 +101,6 @@ class PurchaseController extends Controller
 
         return redirect()->route('ordered')->with('success', 'Bilhete enviado com sucesso.');
     }
-
-
-    public function vip_confirm($vip_id)
-    {
-        $vip = Package::find($vip_id);
-        return view('app.main.vip_confirm', compact('vip'));
-    }
-
-    protected function ref_user($ref_by)
-    {
-        return User::where('ref_id', $ref_by)->first();
-    }
-
     protected function applyReferralCommission(User $user, float $stake, Rebate $rebate): void
     {
         $firstRef = User::where('ref_id', $user->ref_by)->first();
