@@ -180,6 +180,27 @@
             transform: translateY(3px);
             box-shadow: 0 4px 12px rgba(58, 134, 255, 0.2);
         }
+
+        .alert {
+            border-radius: 14px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            font-weight: 600;
+        }
+
+        .alert-error {
+            background: rgba(230, 57, 70, 0.12);
+            color: #8f1d28;
+            border: 1px solid rgba(230, 57, 70, 0.22);
+        }
+
+        .alert-success {
+            background: rgba(56, 176, 0, 0.12);
+            color: #246d00;
+            border: 1px solid rgba(56, 176, 0, 0.22);
+        }
     </style>
 </head>
 <body>
@@ -194,6 +215,18 @@
         <p class="ac">Login</p>
         <p onclick="window.location.href='{{route ('register')}}'">Cadastro</p>
     </div>
+
+    @if (session('error'))
+        <div class="alert alert-error">{{ session('error') }}</div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-error">{{ $errors->first() }}</div>
+    @endif
+
+    @if (session('success'))
+        <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
 
     <form action="{{route ('login')}}" method="post">
         @csrf
