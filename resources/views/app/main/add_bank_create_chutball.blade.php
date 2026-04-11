@@ -10,7 +10,8 @@
             --bg-main: #CFE8D5;
             --bg-grad-a: #eef8f0;
             --bg-grad-b: #bdd9c4;
-            --accent: #3A86FF;
+            --accent: #25b85a;
+            --accent-strong: #1d9548;
             --success: #38B000;
             --text-main: #16324a;
             --text-gray: #627479;
@@ -21,9 +22,9 @@
             font-family: "Montserrat", sans-serif;
             color: var(--text-main);
             background:
-                radial-gradient(circle at top left, rgba(58, 134, 255, 0.16), transparent 26%),
+                radial-gradient(circle at top left, rgba(37, 184, 90, 0.16), transparent 26%),
                 radial-gradient(circle at bottom right, rgba(56, 176, 0, 0.10), transparent 24%),
-                linear-gradient(145deg, var(--bg-grad-a) 0%, var(--bg-main) 46%, var(--bg-grad-b) 100%);
+                linear-gradient(180deg, #92e5d6 0%, #c8f3df 52%, #eef8f0 100%);
             padding-bottom: 30px;
         }
         .header {
@@ -46,7 +47,7 @@
         .card {
             padding: 20px;
             margin-bottom: 16px;
-            background: linear-gradient(135deg, rgba(58,134,255,0.16), rgba(255,255,255,0.9));
+            background: linear-gradient(135deg, rgba(37,184,90,0.16), rgba(255,255,255,0.92));
         }
         .chip {
             width: 46px;
@@ -70,7 +71,7 @@
         .name {
             font-size: 1rem;
             font-weight: 800;
-            color: var(--accent);
+            color: var(--accent-strong);
         }
         .method {
             float: right;
@@ -117,8 +118,8 @@
             color: #fff;
             font-size: 0.95rem;
             font-weight: 900;
-            background: linear-gradient(135deg, #3A86FF 0%, #62a2ff 100%);
-            box-shadow: 0 14px 26px rgba(58, 134, 255, 0.28);
+            background: linear-gradient(135deg, #25b85a 0%, #3cc96e 100%);
+            box-shadow: 0 14px 26px rgba(37, 184, 90, 0.24);
         }
         .note {
             margin-top: 14px;

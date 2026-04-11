@@ -12,7 +12,7 @@ class ProfileController extends Controller
 {
     public function change_password()
     {
-        return view('app.auth.change_password');
+        return view('app.auth.change_password_chutball');
     }
 
     public function change_password_confirm(Request $request)
@@ -44,7 +44,7 @@ class ProfileController extends Controller
 
     public function change_tpassword()
     {
-        return view('app.auth.change_tpassword');
+        return view('app.auth.change_tpassword_chutball');
     }
 
     public function change_tpassword_confirm(Request $request)
