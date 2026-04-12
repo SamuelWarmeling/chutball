@@ -6,7 +6,7 @@
     <title>Inicio | CHUTBALL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --bg-a:#92e5d6; --bg-b:#c8f3df; --bg-c:#eef8f0; --accent:#25b85a; --accent-dark:#1d9548; --card-light:rgba(255,255,255,.94); --text-main:#243044; --text-soft:#65748b; --line:rgba(36,48,68,.08); }
+        :root { --bg-a:#92e5d6; --bg-b:#c8f3df; --bg-c:#eef8f0; --accent:#25b85a; --accent-dark:#1d9548; --card-light:rgba(255,255,255,.94); --card-dark:#2f3455; --text-main:#243044; --text-soft:#65748b; --line:rgba(36,48,68,.08); --risk:#e63946; }
         * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
         body { margin:0; font-family:"Georgia","Times New Roman",serif; color:var(--text-main); background:radial-gradient(circle at 18% 16%, rgba(255,255,255,.34), transparent 22%),radial-gradient(circle at 82% 28%, rgba(255,255,255,.28), transparent 18%),radial-gradient(circle at 50% 72%, rgba(255,255,255,.18), transparent 24%),linear-gradient(180deg,var(--bg-a) 0%,var(--bg-b) 52%,var(--bg-c) 100%); min-height:100vh; padding-bottom:92px; }
         .shell { max-width:430px; margin:0 auto; min-height:100vh; }
@@ -40,16 +40,35 @@
         .feature-icon { width:54px; height:54px; border-radius:16px; margin:0 auto 8px; background:linear-gradient(180deg,#ffffff 0%,#eff7f2 100%); border:1px solid rgba(37,184,90,.14); display:flex; align-items:center; justify-content:center; color:var(--accent-dark); box-shadow:0 10px 20px rgba(37,184,90,.08); font-size:1.05rem; }
         .feature-item p { margin:0; font-size:.76rem; line-height:1.2; font-weight:700; }
         .match-card, .ticket-card, .empty-card { padding:18px 16px; }
+        .match-card { position:relative; overflow:hidden; border-color:rgba(47,52,85,.08); cursor:pointer; }
+        .match-card::before { content:""; position:absolute; inset:0 0 auto 0; height:86px; background:linear-gradient(180deg, rgba(47,52,85,.06) 0%, rgba(47,52,85,0) 100%); pointer-events:none; }
+        .match-card::after { content:""; position:absolute; inset:0; border:1px solid rgba(37,184,90,.08); border-radius:20px; pointer-events:none; transition:border-color .18s ease, box-shadow .18s ease; }
+        .match-card:hover::after { border-color:rgba(37,184,90,.22); box-shadow:inset 0 0 0 1px rgba(37,184,90,.08); }
         .match-top { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px; }
         .league { color:var(--text-soft); font-size:.72rem; text-transform:uppercase; letter-spacing:.04em; font-weight:700; }
         .teams { margin-top:8px; font-size:1.15rem; font-weight:700; line-height:1.35; }
         .match-time { margin-top:8px; color:#3f5961; font-size:.86rem; }
         .badge { background:var(--accent); color:#fff; border-radius:999px; padding:7px 11px; font-size:.68rem; font-weight:700; white-space:nowrap; }
-        .odds-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
-        .odd-box { background:linear-gradient(180deg,#ffffff 0%,#eff7f2 100%); border:1px solid rgba(37,184,90,.12); border-radius:14px; padding:12px 8px; text-align:center; }
+        .market-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:14px; margin-bottom:10px; }
+        .market-head span { font-size:.7rem; color:var(--text-soft); text-transform:uppercase; letter-spacing:.08em; font-weight:700; }
+        .risk-free { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; background:rgba(37,184,90,.12); color:var(--accent-dark); font-size:.68rem; font-weight:800; }
+        .market-note { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; margin-bottom:12px; padding:12px 14px; border-radius:16px; background:linear-gradient(180deg,#ffffff 0%,#f3fbf5 100%); border:1px solid rgba(37,184,90,.12); }
+        .market-copy strong { display:block; font-size:.92rem; margin-bottom:2px; color:var(--text-main); }
+        .market-copy span { display:block; font-size:.74rem; color:var(--text-soft); line-height:1.45; }
+        .market-arrow { width:38px; height:38px; border-radius:12px; background:rgba(37,184,90,.12); color:var(--accent-dark); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+        .odds-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:0; }
+        .odd-link { display:block; position:relative; z-index:2; text-decoration:none; color:inherit; border-radius:14px; transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+        .odd-link:hover, .odd-link:focus-visible { transform:translateY(-2px); box-shadow:0 14px 22px rgba(37,184,90,.16); outline:none; }
+        .odd-box { background:linear-gradient(180deg,#ffffff 0%,#eff7f2 100%); border:1px solid rgba(37,184,90,.12); border-radius:14px; padding:12px 8px; text-align:center; cursor:pointer; }
         .odd-box span { display:block; color:var(--text-soft); font-size:.7rem; margin-bottom:6px; }
         .odd-box strong { color:var(--accent-dark); font-size:1.05rem; }
-        .action-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:14px; background:linear-gradient(135deg,#25b85a 0%,#3cc96e 100%); color:#fff; padding:13px; border-radius:14px; font-weight:700; text-decoration:none; box-shadow:0 14px 22px rgba(37,184,90,.22); }
+        .odd-link.away:hover .odd-box, .odd-link.away:focus-visible .odd-box { border-color:rgba(230,57,70,.26); }
+        .open-match { display:grid; grid-template-columns:1fr auto; gap:10px; margin-top:14px; position:relative; z-index:2; }
+        .action-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:100%; background:linear-gradient(135deg,#25b85a 0%,#3cc96e 100%); color:#fff; padding:14px; border-radius:14px; font-weight:800; text-decoration:none; box-shadow:0 14px 22px rgba(37,184,90,.22); }
+        .secondary-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; background:linear-gradient(180deg,#ffffff 0%,#eff7f2 100%); color:var(--text-main); padding:14px 14px; border-radius:14px; font-weight:800; text-decoration:none; border:1px solid rgba(37,184,90,.14); white-space:nowrap; }
+        .action-btn:hover, .secondary-btn:hover, .action-btn:focus-visible, .secondary-btn:focus-visible { transform:translateY(-1px); outline:none; }
+        .match-link-layer { position:absolute; inset:0; z-index:1; border-radius:20px; }
+        .match-link-layer span { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
         .ticket-card h4, .empty-card h4 { margin:0 0 8px; font-size:1rem; font-weight:700; }
         .ticket-card p, .empty-card p { margin:4px 0; color:var(--text-soft); font-size:.84rem; line-height:1.5; }
         .status { color:var(--accent-dark); font-weight:700; }
@@ -114,6 +133,7 @@
         <section class="section-card"><div class="section-title">Jogos em destaque</div></section>
         @forelse($matches as $match)
             <div class="match-card">
+                <a class="match-link-layer" href="{{ route('purchase.confirmation', $match->id) }}"><span>Abrir {{ $match->home_team }} x {{ $match->away_team }}</span></a>
                 <div class="match-top">
                     <div>
                         <div class="league">{{ $match->league }}</div>
@@ -124,12 +144,32 @@
                         <div class="badge">{{ $match->featured_badge }}</div>
                     @endif
                 </div>
-                <div class="odds-grid">
-                    <div class="odd-box"><span>{{ $match->home_team }}</span><strong>{{ number_format($match->home_odds, 2, ',', '.') }}</strong></div>
-                    <div class="odd-box"><span>Empate</span><strong>{{ number_format($match->draw_odds, 2, ',', '.') }}</strong></div>
-                    <div class="odd-box"><span>{{ $match->away_team }}</span><strong>{{ number_format($match->away_odds, 2, ',', '.') }}</strong></div>
+                <div class="market-head">
+                    <span>Resultado final</span>
+                    <div class="risk-free"><i class="fa-solid fa-shield-halved"></i>Sem risco via garantida</div>
                 </div>
-                <a class="action-btn" href="{{ route('purchase.confirmation', $match->id) }}"><i class="fa-solid fa-ticket"></i>Montar bilhete</a>
+                <div class="market-note">
+                    <div class="market-copy">
+                        <strong>Abra o jogo e escolha sua entrada</strong>
+                        <span>Odds clicaveis, bilhete rapido e entrada protegida pelo grupo quando quiser operar sem risco.</span>
+                    </div>
+                    <div class="market-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </div>
+                <div class="odds-grid">
+                    <a class="odd-link home" href="{{ route('purchase.confirmation', ['id' => $match->id, 'selection' => 'home']) }}">
+                        <div class="odd-box"><span>{{ $match->home_team }}</span><strong>{{ number_format($match->home_odds, 2, ',', '.') }}</strong></div>
+                    </a>
+                    <a class="odd-link draw" href="{{ route('purchase.confirmation', ['id' => $match->id, 'selection' => 'draw']) }}">
+                        <div class="odd-box"><span>Empate</span><strong>{{ number_format($match->draw_odds, 2, ',', '.') }}</strong></div>
+                    </a>
+                    <a class="odd-link away" href="{{ route('purchase.confirmation', ['id' => $match->id, 'selection' => 'away']) }}">
+                        <div class="odd-box"><span>{{ $match->away_team }}</span><strong>{{ number_format($match->away_odds, 2, ',', '.') }}</strong></div>
+                    </a>
+                </div>
+                <div class="open-match">
+                    <a class="action-btn" href="{{ route('purchase.confirmation', $match->id) }}"><i class="fa-solid fa-door-open"></i>Abrir jogo</a>
+                    <a class="secondary-btn" href="{{ route('purchase.confirmation', $match->id) }}"><i class="fa-solid fa-ticket"></i>Bilhete</a>
+                </div>
             </div>
         @empty
             <div class="empty-card">

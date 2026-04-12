@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
 {
-    public function purchaseConfirmation($id)
+    public function purchaseConfirmation(Request $request, $id)
     {
         $match = FootballMatch::findOrFail($id);
+        $preselectedSelection = in_array($request->query('selection'), ['home', 'draw', 'away'], true)
+            ? $request->query('selection')
+            : 'home';
 
-        return view('app.main.vip_details', compact('match'));
+        return view('app.main.vip_details', compact('match', 'preselectedSelection'));
     }
 
     public function submitBet(Request $request, $id)
