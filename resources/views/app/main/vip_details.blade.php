@@ -47,6 +47,11 @@
         .submit-btn { width:100%; border:none; border-radius:16px; padding:16px; color:#fff; font-size:.96rem; font-weight:900; letter-spacing:.04em; background:linear-gradient(135deg,#25b85a 0%,#3cc96e 100%); box-shadow:0 14px 26px rgba(37,184,90,.28); }
         .tips { margin:0; padding-left:18px; color:var(--text-soft); font-size:.84rem; line-height:1.6; }
         .tips li { margin-bottom:6px; }
+        .flash-stack { display:grid; gap:10px; margin-bottom:16px; }
+        .flash { border-radius:16px; padding:14px 16px; font-size:.85rem; line-height:1.5; border:1px solid transparent; }
+        .flash-success { background:rgba(37,184,90,.12); border-color:rgba(37,184,90,.2); color:var(--accent-dark); }
+        .flash-error { background:rgba(230,57,70,.10); border-color:rgba(230,57,70,.18); color:#a3202f; }
+        .field-error { margin-top:6px; font-size:.76rem; color:#a3202f; }
     </style>
 </head>
 <body>
@@ -56,6 +61,19 @@
         <i class="fa-solid fa-ticket"></i>
     </div>
     <div class="wrap">
+        @if (session('success') || session('error') || $errors->any())
+            <div class="flash-stack">
+                @if (session('success'))
+                    <div class="flash flash-success">{{ session('success') }}</div>
+                @endif
+                @if (session('error'))
+                    <div class="flash flash-error">{{ session('error') }}</div>
+                @endif
+                @if ($errors->any())
+                    <div class="flash flash-error">{{ $errors->first() }}</div>
+                @endif
+            </div>
+        @endif
         <div class="card hero-card">
             <div class="league">{{ $match->league }}</div>
             <div class="teams">{{ $match->home_team }} x {{ $match->away_team }}</div>
@@ -83,6 +101,9 @@
                 </div>
                 <div class="section-title">Valor da aposta</div>
                 <div class="input-wrap"><span>R$</span><input type="number" name="stake" min="50" step="0.01" placeholder="50,00" required></div>
+                @error('stake')
+                    <div class="field-error">{{ $message }}</div>
+                @enderror
                 <div class="value-hint">Para operacao manual no app, o valor minimo desta entrada e R$ 50,00.</div>
                 <div class="card" style="padding:16px; margin:18px 0 0;">
                     <div class="summary">
@@ -105,6 +126,5 @@
             </ul>
         </div>
     </div>
-    @include('alert-message')
 </body>
 </html>
