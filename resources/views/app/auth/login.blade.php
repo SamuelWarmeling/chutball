@@ -50,13 +50,22 @@
         .field label { display: block; margin-bottom: 8px; color: var(--accent-blue); text-transform: uppercase; font-size: .76rem; letter-spacing: .08em; font-weight: 700; }
         .input-box { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.95); border: 2px solid #dce7de; border-radius: 16px; padding: 0 16px; min-height: 60px; transition: .2s ease; }
         .input-box:focus-within { border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12); }
-        .country-select { width: 132px; border: none; outline: none; background: transparent; color: var(--text-main); font-size: .95rem; font-family: inherit; font-weight: 700; }
+        .phone-row { display: flex; align-items: center; gap: 12px; width: 100%; }
+        .country-wrap { position: relative; flex: 0 0 172px; min-width: 172px; }
+        .country-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--accent-dark); font-size: .92rem; pointer-events: none; }
+        .country-select { width: 100%; border: none; outline: none; background: transparent; color: var(--text-main); font-size: .94rem; font-family: inherit; font-weight: 700; appearance: none; padding: 0 24px 0 30px; }
+        .country-arrow { position: absolute; right: 2px; top: 50%; transform: translateY(-50%); color: var(--text-soft); pointer-events: none; font-size: .82rem; }
         .divider { width: 1px; align-self: stretch; background: #dce7de; }
         .hint { margin-top: 6px; color: var(--text-soft); font-size: .76rem; }
         .input-box input { width: 100%; border: none; background: transparent; outline: none; color: var(--text-main); font-size: 1rem; font-family: inherit; }
         .input-box input::placeholder { color: #7d8c93; }
         .forgot { display: block; text-align: right; margin: 4px 0 18px; color: var(--text-soft); text-decoration: none; font-size: .88rem; font-weight: 700; }
         .btn { width: 100%; border: none; border-radius: 16px; padding: 16px; color: #fff; font-size: 1rem; font-weight: 900; text-transform: uppercase; background: linear-gradient(135deg, #25b85a 0%, #47cd77 100%); box-shadow: 0 14px 26px rgba(37, 184, 90, 0.28); cursor: pointer; }
+        @media (max-width: 420px) {
+            .phone-row { gap: 10px; }
+            .country-wrap { flex-basis: 156px; min-width: 156px; }
+            .country-select { font-size: .88rem; }
+        }
     </style>
 </head>
 <body>
@@ -98,15 +107,21 @@
                 <div class="field">
                     <label>Numero de telefone</label>
                     <div class="input-box">
-                        <select name="country_code" class="country-select">
-                            @foreach(auth_countries() as $country)
-                                <option value="{{ $country['code'] }}" {{ old('country_code', auth_default_country()) === $country['code'] ? 'selected' : '' }}>
-                                    {{ $country['name'] }} +{{ $country['dial_code'] }}
-                                </option>
-                            @endforeach
-                        </select>
-                        <div class="divider"></div>
-                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="DDD + telefone" required>
+                        <div class="phone-row">
+                            <div class="country-wrap">
+                                <i class="fa-solid fa-globe country-icon"></i>
+                                <select name="country_code" class="country-select">
+                                    @foreach(auth_countries() as $country)
+                                        <option value="{{ $country['code'] }}" {{ old('country_code', auth_default_country()) === $country['code'] ? 'selected' : '' }}>
+                                            {{ country_flag_emoji($country['flag']) }} {{ $country['name'] }} +{{ $country['dial_code'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <i class="fa-solid fa-chevron-down country-arrow"></i>
+                            </div>
+                            <div class="divider"></div>
+                            <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="DDD + telefone" required>
+                        </div>
                     </div>
                     <div class="hint">Digite so os numeros. O sistema salva e valida no formato completo automaticamente.</div>
                 </div>

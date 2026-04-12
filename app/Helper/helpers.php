@@ -490,11 +490,31 @@ if (! function_exists('auth_countries')) {
     function auth_countries()
     {
         return [
-            ['code' => 'BR', 'name' => 'Brasil', 'dial_code' => '55', 'placeholder' => '119184700431'],
-            ['code' => 'PT', 'name' => 'Portugal', 'dial_code' => '351', 'placeholder' => '912345678'],
-            ['code' => 'AO', 'name' => 'Angola', 'dial_code' => '244', 'placeholder' => '923456789'],
-            ['code' => 'MZ', 'name' => 'Mocambique', 'dial_code' => '258', 'placeholder' => '841234567'],
-            ['code' => 'CV', 'name' => 'Cabo Verde', 'dial_code' => '238', 'placeholder' => '9912345'],
+            ['code' => 'BR', 'name' => 'Brasil', 'dial_code' => '55', 'flag' => 'BR', 'placeholder' => '119184700431'],
+            ['code' => 'PT', 'name' => 'Portugal', 'dial_code' => '351', 'flag' => 'PT', 'placeholder' => '912345678'],
+            ['code' => 'AO', 'name' => 'Angola', 'dial_code' => '244', 'flag' => 'AO', 'placeholder' => '923456789'],
+            ['code' => 'MZ', 'name' => 'Mocambique', 'dial_code' => '258', 'flag' => 'MZ', 'placeholder' => '841234567'],
+            ['code' => 'CV', 'name' => 'Cabo Verde', 'dial_code' => '238', 'flag' => 'CV', 'placeholder' => '9912345'],
+            ['code' => 'GW', 'name' => 'Guine-Bissau', 'dial_code' => '245', 'flag' => 'GW', 'placeholder' => '955123456'],
+            ['code' => 'ST', 'name' => 'Sao Tome e Principe', 'dial_code' => '239', 'flag' => 'ST', 'placeholder' => '9812345'],
+            ['code' => 'TL', 'name' => 'Timor-Leste', 'dial_code' => '670', 'flag' => 'TL', 'placeholder' => '77234567'],
+            ['code' => 'AR', 'name' => 'Argentina', 'dial_code' => '54', 'flag' => 'AR', 'placeholder' => '91123456789'],
+            ['code' => 'BO', 'name' => 'Bolivia', 'dial_code' => '591', 'flag' => 'BO', 'placeholder' => '71234567'],
+            ['code' => 'CL', 'name' => 'Chile', 'dial_code' => '56', 'flag' => 'CL', 'placeholder' => '912345678'],
+            ['code' => 'CO', 'name' => 'Colombia', 'dial_code' => '57', 'flag' => 'CO', 'placeholder' => '3001234567'],
+            ['code' => 'EC', 'name' => 'Equador', 'dial_code' => '593', 'flag' => 'EC', 'placeholder' => '991234567'],
+            ['code' => 'MX', 'name' => 'Mexico', 'dial_code' => '52', 'flag' => 'MX', 'placeholder' => '5512345678'],
+            ['code' => 'PY', 'name' => 'Paraguai', 'dial_code' => '595', 'flag' => 'PY', 'placeholder' => '981123456'],
+            ['code' => 'PE', 'name' => 'Peru', 'dial_code' => '51', 'flag' => 'PE', 'placeholder' => '912345678'],
+            ['code' => 'UY', 'name' => 'Uruguai', 'dial_code' => '598', 'flag' => 'UY', 'placeholder' => '91234567'],
+            ['code' => 'VE', 'name' => 'Venezuela', 'dial_code' => '58', 'flag' => 'VE', 'placeholder' => '4121234567'],
+            ['code' => 'US', 'name' => 'Estados Unidos', 'dial_code' => '1', 'flag' => 'US', 'placeholder' => '2015550123'],
+            ['code' => 'CA', 'name' => 'Canada', 'dial_code' => '1', 'flag' => 'CA', 'placeholder' => '4165550123'],
+            ['code' => 'ES', 'name' => 'Espanha', 'dial_code' => '34', 'flag' => 'ES', 'placeholder' => '612345678'],
+            ['code' => 'FR', 'name' => 'Franca', 'dial_code' => '33', 'flag' => 'FR', 'placeholder' => '612345678'],
+            ['code' => 'DE', 'name' => 'Alemanha', 'dial_code' => '49', 'flag' => 'DE', 'placeholder' => '15123456789'],
+            ['code' => 'IT', 'name' => 'Italia', 'dial_code' => '39', 'flag' => 'IT', 'placeholder' => '3123456789'],
+            ['code' => 'GB', 'name' => 'Reino Unido', 'dial_code' => '44', 'flag' => 'GB', 'placeholder' => '7400123456'],
         ];
     }
 }
@@ -532,6 +552,22 @@ if (! function_exists('normalize_auth_phone')) {
         }
 
         return $dialCode.$digits;
+    }
+}
+
+if (! function_exists('country_flag_emoji')) {
+    function country_flag_emoji($countryCode)
+    {
+        $countryCode = strtoupper((string) $countryCode);
+
+        if (strlen($countryCode) !== 2) {
+            return '';
+        }
+
+        $first = mb_chr(127397 + ord($countryCode[0]), 'UTF-8');
+        $second = mb_chr(127397 + ord($countryCode[1]), 'UTF-8');
+
+        return $first.$second;
     }
 }
 
