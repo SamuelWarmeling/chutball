@@ -50,6 +50,8 @@
         .field label { display: block; margin-bottom: 8px; color: var(--accent-blue); text-transform: uppercase; font-size: .76rem; letter-spacing: .08em; font-weight: 700; }
         .input-box { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,.95); border: 2px solid #dce7de; border-radius: 16px; padding: 0 16px; min-height: 60px; transition: .2s ease; }
         .input-box:focus-within { border-color: var(--accent-blue); box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.12); }
+        .country-select { width: 132px; border: none; outline: none; background: transparent; color: var(--text-main); font-size: .95rem; font-family: inherit; font-weight: 700; }
+        .divider { width: 1px; align-self: stretch; background: #dce7de; }
         .hint { margin-top: 6px; color: var(--text-soft); font-size: .76rem; }
         .input-box input { width: 100%; border: none; background: transparent; outline: none; color: var(--text-main); font-size: 1rem; font-family: inherit; }
         .input-box input::placeholder { color: #7d8c93; }
@@ -96,9 +98,17 @@
                 <div class="field">
                     <label>Numero de telefone</label>
                     <div class="input-box">
-                        <input type="tel" name="phone" placeholder="DDD + telefone" required>
+                        <select name="country_code" class="country-select">
+                            @foreach(auth_countries() as $country)
+                                <option value="{{ $country['code'] }}" {{ old('country_code', auth_default_country()) === $country['code'] ? 'selected' : '' }}>
+                                    {{ $country['name'] }} +{{ $country['dial_code'] }}
+                                </option>
+                            @endforeach
+                        </select>
+                        <div class="divider"></div>
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="DDD + telefone" required>
                     </div>
-                    <div class="hint">Digite so os numeros, por exemplo: 119184700431</div>
+                    <div class="hint">Digite so os numeros. O sistema salva e valida no formato completo automaticamente.</div>
                 </div>
                 <div class="field">
                     <label>Senha</label>

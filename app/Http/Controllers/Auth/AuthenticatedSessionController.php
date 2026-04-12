@@ -26,7 +26,8 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
     public function store(Request $request){
-       $user = User::where('phone', $request->phone)->first();
+        $normalizedPhone = normalize_auth_phone($request->country_code, $request->phone);
+        $user = User::where('phone', $normalizedPhone)->first();
 
         if (Auth::check()){
             return redirect()->route('dashboard');

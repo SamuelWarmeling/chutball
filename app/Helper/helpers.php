@@ -486,5 +486,54 @@ if (! function_exists('checkin_reward_for_streak')) {
     }
 }
 
+if (! function_exists('auth_countries')) {
+    function auth_countries()
+    {
+        return [
+            ['code' => 'BR', 'name' => 'Brasil', 'dial_code' => '55', 'placeholder' => '119184700431'],
+            ['code' => 'PT', 'name' => 'Portugal', 'dial_code' => '351', 'placeholder' => '912345678'],
+            ['code' => 'AO', 'name' => 'Angola', 'dial_code' => '244', 'placeholder' => '923456789'],
+            ['code' => 'MZ', 'name' => 'Mocambique', 'dial_code' => '258', 'placeholder' => '841234567'],
+            ['code' => 'CV', 'name' => 'Cabo Verde', 'dial_code' => '238', 'placeholder' => '9912345'],
+        ];
+    }
+}
+
+if (! function_exists('auth_country_map')) {
+    function auth_country_map()
+    {
+        return collect(auth_countries())->keyBy('code')->all();
+    }
+}
+
+if (! function_exists('auth_default_country')) {
+    function auth_default_country()
+    {
+        return 'BR';
+    }
+}
+
+if (! function_exists('normalize_auth_phone')) {
+    function normalize_auth_phone($countryCode, $phone)
+    {
+        $countryCode = strtoupper((string) $countryCode);
+        $countries = auth_country_map();
+        $selected = $countries[$countryCode] ?? $countries[auth_default_country()];
+
+        $digits = preg_replace('/\D+/', '', (string) $phone);
+        $dialCode = $selected['dial_code'];
+
+        if ($digits === '') {
+            return '';
+        }
+
+        if (str_starts_with($digits, $dialCode)) {
+            return $digits;
+        }
+
+        return $dialCode.$digits;
+    }
+}
+
 
 ?>

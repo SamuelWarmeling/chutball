@@ -29,8 +29,11 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        $normalizedPhone = normalize_auth_phone($request->country_code, $request->phone);
+
         $validate = Validator::make($request->all(), [
-            'phone' => ['required', 'numeric', 'unique:users,phone'],
+            'country_code' => ['required', 'string', 'size:2'],
+            'phone' => ['required'],
             'password' => ['required'],
             'ref_by' => ['nullable'],
             ]);
@@ -38,11 +41,19 @@ class RegisteredUserController extends Controller
             
             
         if ($validate->fails()){
-            $user = User::where('phone', $request->phone)->first();
+            $user = User::where('phone', $normalizedPhone)->first();
             if ($user){
                 return back()->with('message', ' There is an account at this number');
             }
             return back()->with('message', $validate->errors());
+        }
+
+        if ($normalizedPhone === '') {
+            return back()->withInput()->with('message', 'Digite um numero de telefone valido');
+        }
+
+        if (User::where('phone', $normalizedPhone)->exists()) {
+            return back()->withInput()->with('message', ' There is an account at this number');
         }
 
         $getIp = \Request::ip();
@@ -81,13 +92,13 @@ class RegisteredUserController extends Controller
         //Check refer code is next time edit
         $user = User::create([
             'name' => 'User'.rand(22,99),
-            'username' => 'uname'.$request->phone,
+            'username' => 'uname'.$normalizedPhone,
             'ref_id' => $this->ref_code().$this->ref_code(),
             'ref_by' => $refBy,
             'email' => 'user'.rand(11111,99999).time().'@gmail.com',
             'password' => Hash::make($request->password),
             'type' => 'user',
-            'phone' => $request->phone,
+            'phone' => $normalizedPhone,
             'balance' => setting('registration_bonus'),
             'ip' => $getIp,
             'remember_token' => Str::random(30),
